@@ -5,183 +5,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editorial Kókinos: Libros infantiles y álbumes ilustrados</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <header class="d-flex justify-content-between align-items-center p-3">
-        <div class="d-flex align-items-center">
-            <svg>
-                facebook
-            </svg>
-            <svg>
-                instagram
-            </svg>
+    <header class="container py-3">
+        <div class="row align-items-center mb-3">
+            <div class="col-auto">
+                <a href="#" class="text-secondary me-2" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path
+                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.592 0 8.049c0 4.144 3.063 7.596 7.036 7.987V9.868H4.937V8.049h2.099V6.483c0-2.078 1.244-3.217 3.13-3.217.896 0 1.805.16 1.805.16v1.519h-.876c-1.022 0-1.34.614-1.34 1.285v1.55h2.219l-.353 1.817h-1.866v6.167C12.938 15.645 16 12.193 16 8.049z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-secondary" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-instagram" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372.853.038 1.125.049 3.297.049 2.172 0 2.444-.01 3.297-.049.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.718-.891.923-1.417.198-.51.333-1.09.372-1.942.038-.853.049-1.125.049-3.297s-.01-2.444-.049-3.297c-.04-.852-.174-1.433-.372-1.942a3.916 3.916 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.173 0 8 0zm0 1.442c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.039.843.047 1.096.047 3.232s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.389-.008-3.232-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.232s.008-2.389.046-3.232c.036-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.281-.11.705-.24 1.485-.276.843-.039 1.096-.047 3.232-.047z" />
+                        <path
+                            d="M8 11.816a3.816 3.816 0 1 1 0-7.632 3.816 3.816 0 0 1 0 7.632zm0-5.918a2.101 2.101 0 1 0 0 4.202 2.101 2.101 0 0 0 0-4.202z" />
+                        <path
+                            d="M12.021 3.02c-.494 0-.896.402-.896.896s.402.896.896.896.896-.402.896-.896c0-.494-.402-.896-.896-.896z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="col text-center">
+                <h1 class="mb-0" style="color: #d62828; font-weight: bold; font-size: 2.5rem;">KÓKINOS</h1>
+            </div>
+            <div class="col-auto d-flex align-items-center">
+                <form class="d-flex me-3" role="search">
+                    <input class="form-control form-control-sm me-1" type="search" placeholder="BUSCAR..."
+                        aria-label="Buscar" style="width: 150px;">
+                    <button class="btn btn-outline-secondary btn-sm p-1" type="submit" aria-label="Buscar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </form>
+                <a href="#" class="text-secondary" aria-label="Carrito de compras">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-cart" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg>
+                </a>
+            </div>
         </div>
-        <h1 class="d-flex align-items-center">Kókinos</h1>
-        <nav class="d-flex justify-content-around">
-            <li class=""><a href="">LIBROS</a></li>
-            <li><a href="">AUTORES</a></li>
-            <li><a href="">REGALOS</a></li>
-            <li><a href="">CATALÁN Y OTROS IDIOMAS</a></li>
-            <li><a href="">CONTACTO</a></li>
-            <li><a href="">RINCÓN DEL LECTOR</a></li>
+        <nav class="nav justify-content-center small">
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Libros</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Autores</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Regalos</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Catalán y otros idiomas</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Contacto</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#">Rincón del lector</a>
+            <a class="nav-link text-uppercase px-2 text-danger" href="#" aria-label="Komi Kids">
+                <img src="" alt="Komi Kids" style="height: 20px; vertical-align: middle;">
+            </a>
         </nav>
-        <div>
-            <svg>
-                search
-            </svg>
-            <svg>
-                cart
-            </svg>
-        </div>
     </header>
     <main>
-        <section class="text-center my-5 bg-primary text-white p-5">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"></div>
+        <section class="py-5 bg-info bg-gradient">
+            <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-md-10">
+                                    <img src="./assets/carousel_1/banner_lotta_alborota.jpg"
+                                        class="img-fluid d-block mx-auto" alt="banner_lotta_alborota"
+                                        style="max-height: 350px;">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-md-10">
+                                    <img src="./assets/carousel_1/banner_mariquita.jpg"
+                                        class="img-fluid d-block mx-auto" alt="banner_mariquita"
+                                        style="max-height: 350px;">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-md-10">
+                                    <img src="./assets/carousel_1/banner_una_semillita2_0.jpg"
+                                        class="img-fluid d-block mx-auto" alt="banner_una_semillita2_0"
+                                        style="max-height: 350px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-md-10">
+                                    <img src="./assets/carousel_1/venta_on_line.jpg" class="img-fluid d-block mx-auto"
+                                        alt="venta_on_line" style="max-height: 350px;">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        style="background-color: rgba(0, 123, 255, 0.5); border-radius: 50%;"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        style="background-color: rgba(0, 123, 255, 0.5); border-radius: 50%;"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </section>
-        <section>
-            <p>Desde 1992 acompañando a los lectores más exquisitos</p>
-            <h2>NOVEDADES</h2>
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <section class="container py-4">
+            <p class="text-center mb-2" style="color: #d62828; font-size: 0.9rem;">Desde 1992 acompañando a los lectores
+                más exquisitos</p>
+            <h2 class="text-center mb-4" style="color: #d62828; font-weight: bold;">NOVEDADES</h2>
+            <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_74_9_una_manzana.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 1"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">UNA MANZANA</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">MERITXELL DURAN</p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_69_5_circulos.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 2"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">CÍRCULOS</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">YUSUKE YONEZU</p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_68_8_triangulos.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 3"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">TRIÁNGULOS</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">YUSUKE YONEZU</p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_67_1_cuadrados.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 4"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">CUADRADOS</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">YUSUKE YONEZU</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
-                        <img src="..." class="d-block w-100" alt="...">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_95_4_perez_cast.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 5"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">PÉREZ</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">ANDREA ANTINORI</p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_72_5_adivina_veo_veo_cast_3d.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 6"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">ADIVINA CUÁNTO TE QUIERO.
+                                    VEO VEO...</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">SAM MCBRATNEY, ANITA JERAM
+                                </p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_78_7_una_navidad_con_pippi.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 7"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">UNA NAVIDAD CON PIPPI</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">ASTRID LINDGREN</p>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-5 text-center">
+                                <img src="./assets/carousel_2/thumb_cub_978_84_19475_70_1_como_hacer_caramelos_magicos.jpg"
+                                    class="img-fluid mb-2" alt="Novedad 8"
+                                    style="max-height: 180px; object-fit: contain;">
+                                <h6 class="small" style="font-size: 0.75rem; color: #007bff;">CÓMO HACER CARAMELOS
+                                    MÁGICOS</h6>
+                                <p class="small" style="font-size: 0.7rem; color: #6c757d;">HEENA BAEK</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        style="filter: invert(0.5) grayscale(100) brightness(1.5);"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel"
                     data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        style="filter: invert(0.5) grayscale(100) brightness(1.5);"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </section>
-        <section>
-            <h2>RECIENTES</h2>
-            <div>
-                <!-- cards -->
-                <div>
-                    <img src="..." alt="Libro reciente">
-                    <h3>Título del libro</h3>
-                    <p>Autor del libro</p>
+        <section class="container py-5">
+            <h2 class="text-center mb-4" style="color: #d62828; font-weight: bold;">RECIENTES</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_61_9_una_expo_ideal.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 1"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">UNA EXPO IDEAL
+                            </h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">HERVÉ TULLET</p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img src="..." alt="Libro reciente">
-                    <h3>Título del libro</h3>
-                    <p>Autor del libro</p>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_31_2_estas_malito_sam_cast.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 2"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">¿ESTÁS MALITO,
+                                SAM?</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">AMY HEST, ANITA JERAM
+                            </p>
+                        </div>
+                    </div>
                 </div>
-
-                <img src="..." alt="Libro reciente">
-                <h3>Título del libro</h3>
-                <p>Autor del libro</p>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_76_3_el_superdetective_b_3_castellano_3d.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 3"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">EL
+                                SUPERDETECTIVE BLOMKVIST</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">ASTRID LINDGREN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_66_4_la_mano_magica.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 4"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">LA MANO MÁGICA
+                            </h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">HERVÉ TULLET</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_43_5_zozo_feliz.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 5"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">ZOZO FELIZ</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">BRUNO GÄLLIN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_64_0_el_superdetective_blomkvist_2_castellano_3d.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 6"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">EL
+                                SUPERDETECTIVE BLOMKVIST VIVE PELIGROSAMENTE</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">ASTRID LINDGREN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_56_5_al_fin_del_mundo_muy_muy_lejos_castellano.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 7"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">AL FIN DEL
+                                MUNDO, MUY MUY LEJOS</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">RONDA ARMITAGE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100 text-center border-0">
+                        <img src="./assets/recientes/thumb_cub_978_84_19475_60_2_al_final_nueva_ed_25x25_cartone.jpg" class="card-img-top p-3 mx-auto" alt="Libro reciente 8"
+                            style="max-height: 220px; width: auto; object-fit: contain;">
+                        <div class="card-body p-2">
+                            <h5 class="card-title small mb-1" style="font-size: 0.8rem; color: #007bff;">AL FINAL</h5>
+                            <p class="card-text small" style="font-size: 0.75rem; color: #6c757d;">SILVIA NANCLARES</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <img src="..." alt="Libro reciente">
-            <h3>Título del libro</h3>
-            <p>Autor del libro</p>
-            </div>
-            >
-            <img src="..." alt="Libro reciente">
-            <h3>Título del libro</h3>
-            <p>Autor del libro</p>
-            </div>
-            <div>
-                <img src="..." alt="Libro reciente">
-                <h3>Título del libro</h3>
-                <p>Autor del libro</p>
-            </div>
-
-            <img src="..." alt="Libro reciente">
-            <h3>Título del libro</h3>
-            <p>Autor del libro</p>
-            </div>
-
-            <img src="..." alt="Libro reciente">
-            <h3>Título del libro</h3>
-            <p>Autor del libro</p>
-            </div>
-            </div>
-            <div>
-                <button>VER TODOS LOS TíTULOS</button>
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary px-4">VER TODOS LOS TÍTULOS</button>
             </div>
         </section>
     </main>
-    <footer>
-        <div>
-            <ul>
-                <li>
-                    <a href="">CATÁLOGO</a>
-                    <a href="">TÉRMINOS Y CONDICIONES</a>
-                    <a href="">POLÍTICA DE PRIVACIDAD Y AVISO LEGAL</a>
-                    <a href="">POLÍTICA DE COOKIES</a>
-                    <a href="">CONFIGURAR COOKIES</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <p>SÍGUENOS</p>
-            <svg>
-                facebook
-            </svg>
-            <svg>
-                instagram
-            </svg>
-        </div>
-        <div>
-            <p>DESCARGAR CATÁLOGO COMPETO</p>
-            <button>
-                <svg></svg>
-            </button>
-        </div>
-        <div>
-            <img src="" alt="">
-            <p>&copy; KÓKINOS, 2021</p>
-            <p>TODOS LOS DERECHOS RESERVADOS</p>
+    <footer class="text-white py-5" style="background-color: #50b2c0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <ul class="list-unstyled small">
+                        <li class="mb-1"><a href="#" class="text-white text-decoration-none">CATÁLOGO</a></li>
+                        <li class="mb-1"><a href="#" class="text-white text-decoration-none">TÉRMINOS Y CONDICIONES</a>
+                        </li>
+                        <li class="mb-1"><a href="#" class="text-white text-decoration-none">POLÍTICA DE PRIVACIDAD Y
+                                AVISO LEGAL</a></li>
+                        <li class="mb-1"><a href="#" class="text-white text-decoration-none">POLÍTICA DE COOKIES</a>
+                        </li>
+                        <li><a href="#" class="text-white text-decoration-none">CONFIGURAR COOKIES</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 text-center text-sm-start">
+                    <p class="small mb-2">SÍGUENOS</p>
+                    <a href="#" class="text-white me-2" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0 0 3.592 0 8.049c0 4.144 3.063 7.596 7.036 7.987V9.868H4.937V8.049h2.099V6.483c0-2.078 1.244-3.217 3.13-3.217.896 0 1.805.16 1.805.16v1.519h-.876c-1.022 0-1.34.614-1.34 1.285v1.55h2.219l-.353 1.817h-1.866v6.167C12.938 15.645 16 12.193 16 8.049z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372.853.038 1.125.049 3.297.049 2.172 0 2.444-.01 3.297-.049.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.718-.891.923-1.417.198-.51.333-1.09.372-1.942.038-.853.049-1.125.049-3.297s-.01-2.444-.049-3.297c-.04-.852-.174-1.433-.372-1.942a3.916 3.916 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.173 0 8 0zm0 1.442c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.485.039.843.047 1.096.047 3.232s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.843.038-1.096.047-3.232.047s-2.389-.008-3.232-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.232s.008-2.389.046-3.232c.036-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.281-.11.705-.24 1.485-.276.843-.039 1.096-.047 3.232-.047z" />
+                            <path
+                                d="M8 11.816a3.816 3.816 0 1 1 0-7.632 3.816 3.816 0 0 1 0 7.632zm0-5.918a2.101 2.101 0 1 0 0 4.202 2.101 2.101 0 0 0 0-4.202z" />
+                            <path
+                                d="M12.021 3.02c-.494 0-.896.402-.896.896s.402.896.896.896.896-.402.896-.896c0-.494-.402-.896-.896-.896z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 text-center text-sm-start">
+                    <p class="small mb-2">DESCARGAR CATÁLOGO COMPLETO</p>
+                    <a href="#" class="text-white" aria-label="Descargar catálogo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
+                            <path
+                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 text-center text-sm-start">
+                    <h4 class="mb-1" style="color: #d62828; font-weight: bold;">KÓKINOS</h4>
+                    <p class="small mb-0">&copy; KÓKINOS, 2021</p>
+                    <p class="small">TODOS LOS DERECHOS RESERVADOS</p>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
