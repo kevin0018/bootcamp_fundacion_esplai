@@ -1,3 +1,4 @@
+// Motos
 const response = await fetch('./motos.json');
 if (!response.ok) {
     throw new Error('Failed to load JSON');
@@ -34,3 +35,60 @@ Object.entries(brandCount).forEach(([marca, count]) => {
 });
 
 
+// ------------------------------
+// Bicing 
+const res = await fetch('./bicing.json');
+if (!res.ok) {
+    throw new Error('Failed to load JSON');
+}
+const bicing = await res.json();
+
+/* 
+    Función que nos devuelva la estación con 
+    más bicicletas libres. (sort con función
+    compare personalizada, de más a menos
+    bicis libres, tomar primer elemento)
+*/
+function getStationWithMostBikes(bicing) {
+    return bicing.sort((a, b) => b.free_bikes - a.free_bikes)[0];
+}
+const stationWithMostBikes = getStationWithMostBikes(bicing);
+console.log(`La estación con más bicicletas libres es: ${stationWithMostBikes.name} con ${stationWithMostBikes.free_bikes} bicicletas libres.`);
+
+/*
+    Función que nos devuelva un array de
+    nombres de estaciones que no tienen
+    bicicletas libres (filter+map).
+*/
+
+function getStationsWithoutBikes(bicing) {
+    return bicing.filter(station => station.free_bikes === 0).map(station => station.name);
+}
+const stationsWithoutBikes = getStationsWithoutBikes(bicing);
+console.log('Estaciones sin bicicletas libres:');
+stationsWithoutBikes.forEach(name => console.log(name));
+
+/*
+    Función que devuelva las X estaciones más
+    cercanas a la ubicación 41.388163,
+    2.179769.
+
+    Cálculo de distancia entre (x,y) y (x',y'):
+        Raíz cuadrada de la suma de los
+        cuadrados de (y-y') y (x-x').
+
+    Utilizar sort basado en esta distancia.
+*/
+function getClosestStations(bicing, lat, lon, x = 5) {
+    return bicing
+        .map(station => ({
+            ...station,
+            distance: Math.sqrt(Math.pow(station.latitude - lat, 2) + Math.pow(station.longitude - lon, 2))
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, x)
+        .map(station => station.name);
+}
+const closestStations = getClosestStations(bicing, 41.388163, 2.179769);
+console.log('Estaciones más cercanas:');
+closestStations.forEach(name => console.log(name));
