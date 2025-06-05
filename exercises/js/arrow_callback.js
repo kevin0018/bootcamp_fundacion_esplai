@@ -360,46 +360,159 @@ const numbersWithDuplicates = [1, 2, 3, 2, 4, 5, 1, 6, 7, 8, 5, 2, 3, 2];
 const uniqueNumbers = numbersWithDuplicates.filter((num, index) => numbersWithDuplicates.indexOf(num) === index);
 console.log(uniqueNumbers);
 
+
+// Clases + callbacks (ejercicio 1)
+
 /*
-Clases + callbacks (ejercicio 1)
 Implementa una clase EventManager que permita gestionar un sistema de eventos de
 manera flexible. Esta clase deberá ofrecer los siguientes métodos:
-• .suscribir(evento, callback): registra una función suscriptora para un evento
-concreto (por ejemplo, "mensaje" o "oferta").
-• .emitir(evento, datos): emite un evento y ejecuta todas las funciones suscritas,
-pasándoles los datos correspondientes.
-• .cancelar(evento, callback): elimina una suscripción específica para un evento
-determinado.
+    • .suscribir(evento, callback): registra una función suscriptora para un evento
+    concreto (por ejemplo, "mensaje" o "oferta").
+    • .emitir(evento, datos): emite un evento y ejecuta todas las funciones suscritas,
+    pasándoles los datos correspondientes.
+    • .cancelar(evento, callback): elimina una suscripción específica para un evento
+    determinado.
+
 Cada suscripción debe estar asociada a un nombre de evento (string), lo que permite tener
 distintos tipos de eventos con diferentes funciones suscritas.
 Además, crea una clase Usuario que represente a un usuario del sistema. Esta clase deberá
 incluir:
-• Una propiedad nombre (string), que identifica al usuario.
-• Una propiedad numeroDeMensajesRecibidos (número), que lleve la cuenta de los
-mensajes que ha recibido.
+    • Una propiedad nombre (string), que identifica al usuario.
+    • Una propiedad numeroDeMensajesRecibidos (número), que lleve la cuenta de los
+    mensajes que ha recibido.
+    • Un método recibirMensaje(mensaje) que actualice la cuenta de mensajes y muestre
+    el contenido recibido de forma personalizada.
 
-• Un método recibirMensaje(mensaje) que actualice la cuenta de mensajes y muestre
-el contenido recibido de forma personalizada.
 Finalmente, muestra cómo varias instancias de Usuario pueden suscribirse a un evento
 llamado "mensaje" usando sus propios métodos como callbacks, y cómo EventManager se
 encarga de emitir los mensajes y gestionar las suscripciones.
+*/
+class EventManager {
+    constructor() {
+        this.events = {};
+    }
+
+    subscribe(event, callback) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+        this.events[event].push(callback);
+    }
+
+    emit(event, data) {
+        if (this.events[event]) {
+            this.events[event].forEach(callback => callback(data));
+        }
+    }
+
+    cancel(event, callback) {
+        if (this.events[event]) {
+            this.events[event] = this.events[event].filter(cb => cb !== callback);
+        }
+    }
+}
+
+class User {
+    constructor(name) {
+        this.name = name;
+        this.numberOfMessagesReceived = 0;
+    }
+
+    receiveMessage(message) {
+        this.numberOfMessagesReceived++;
+        console.log(`${this.name} ha recibido un mensaje: ${message}`);
+    }
+}
+const eventManager = new EventManager();
+const user1 = new User("Rodri");
+const user2 = new User("Dani");
+
+eventManager.subscribe("message", user1.receiveMessage.bind(user1));
+eventManager.subscribe("message", user2.receiveMessage.bind(user2));
+
+eventManager.emit("message", "¡Hola a todos!");
+eventManager.emit("message", "¡Hoy juega España!");
+
+eventManager.cancel("message", user2.receiveMessage.bind(user2));
+eventManager.cancel("message", user1.receiveMessage.bind(user1));
+
+eventManager.emit("message", "¡España gana 2-0!");
+
+/*
 Clases + callbacks (ejercicio 2)
 Implementa una clase Fabrica que permita gestionar un sistema de procesamiento de
 productos de manera flexible. Esta clase deberá ofrecer los siguientes métodos:
-• .registrarPaso(callback): añade una función de procesamiento (paso) a una lista de
-pasos. Cada paso será una función que recibe un producto, lo modifica y lo devuelve.
-• .procesarProducto(producto): ejecuta, en orden, todos los pasos registrados sobre el
-objeto producto, aplicando cada función secuencialmente.
-• .limpiarPasos(): elimina todos los pasos registrados hasta el momento.
-Cada paso debe modificar el producto y registrar internamente que ese paso ha sido
-ejecutado.
+    • .registrarPaso(callback): añade una función de procesamiento (paso) a una lista de
+    pasos. Cada paso será una función que recibe un producto, lo modifica y lo devuelve.
+    • .procesarProducto(producto): ejecuta, en orden, todos los pasos registrados sobre el
+    objeto producto, aplicando cada función secuencialmente.
+    • .limpiarPasos(): elimina todos los pasos registrados hasta el momento.
+    Cada paso debe modificar el producto y registrar internamente que ese paso ha sido
+    ejecutado.
+
 Además, crea una clase Producto que represente un objeto que pasa por la fábrica. Esta
 clase deberá incluir:
-• Una propiedad nombre (string), que identifica al producto.
-• Una propiedad historial (array de strings), que almacena los nombres de los pasos
-aplicados.
-• Un método marcarPaso(nombrePaso) que añada el nombre del paso al historial.
+    • Una propiedad nombre (string), que identifica al producto.
+    • Una propiedad historial (array de strings), que almacena los nombres de los pasos
+    aplicados.
+    • Un método marcarPaso(nombrePaso) que añada el nombre del paso al historial.
+
 Finalmente, demuestra cómo varias funciones pueden registrarse como pasos de
 procesamiento, cómo diferentes productos pueden ser procesados por la fábrica, y cómo el
 historial de cada producto refleja los pasos aplicados en orden.
 */
+class Factory {
+    constructor() {
+        this.steps = [];
+    }
+
+    registerStep(callback) {
+        this.steps.push(callback);
+    }
+
+    processProduct(product) {
+        this.steps.forEach(step => {
+            product = step(product);
+        });
+        return product;
+    }
+
+    clearSteps() {
+        this.steps = [];
+    }
+}
+class Product {
+    constructor(name) {
+        this.name = name;
+        this.history = [];
+    }
+
+    markStep(stepName) {
+        this.history.push(stepName);
+    }
+}
+const factory = new Factory();
+const product1 = new Product("Camiseta");
+const product2 = new Product("Pantalones");
+
+factory.registerStep((product) => {
+    product.markStep("Coser");
+    return product;
+});
+
+factory.registerStep((product) => {
+    product.markStep("Planchar");
+    return product;
+});
+
+const processedProduct1 = factory.processProduct(product1);
+const processedProduct2 = factory.processProduct(product2);
+
+console.log(`Producto: ${processedProduct1.name}, Historial: ${processedProduct1.history.join(", ")}`);
+console.log(`Producto: ${processedProduct2.name}, Historial: ${processedProduct2.history.join(", ")}`);
+
+factory.clearSteps();
+factory.registerStep((product) => {
+    product.markStep("Empaquetar");
+    return product;
+});
