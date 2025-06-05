@@ -200,55 +200,167 @@ const tryFunction = (fn, attempts) => {
     let success = false;
     for (let i = 0; i < attempts; i++) {
         try {
-            if (Math.random() < 0.7) {
-                throw new Error("Error al ejecutar la función");
-            }
             const result = fn();
             console.log(`Resultado: ${result}`);
             success = true;
             break;
         } catch (error) {
-            console.error(error.message);
+            console.log(`Intento ${i + 1} falló: ${error.message}`);
         }
     }
     if (!success) {
         console.log("Error final: No se pudo ejecutar la función después de varios intentos.");
     }
 }
-tryFunction(() => {
+
+const functionToTry = () => {
+    if (Math.random() < 0.7) {
+        throw new Error("La función falló");
+    }
     return "Función ejecutada con éxito";
-}, 5);
+}
+
+tryFunction(functionToTry, 5);
+
+
+// Ejercicios sobre Array Helpers
 
 /*
-Ejercicios sobre Array Helpers
 1. Dado un array de números, usa .map() con arrow function para obtener un nuevo array
 con los cuadrados.
+*/
+const numbers = [1, 2, 3, 4, 5];
+const squares = numbers.map(num => num * num);
+console.log(squares);
+
+/*
 2. Usa .filter() con arrow function para quedarte solo con los números pares de este array:
 [1, 2, 3, 4, 5, 6]
-3. Usa .reduce() con arrow function para sumar todos los elementos del array [10, 20, 30].
+*/
+const mixedNumbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = mixedNumbers.filter(num => num % 2 === 0);
+console.log(evenNumbers);
+
+
+// 3. Usa .reduce() con arrow function para sumar todos los elementos del array [10, 20, 30].
+const arrayToSum = [10, 20, 30];
+const totalSum = arrayToSum.reduce((acc, num) => acc + num, 0);
+console.log(totalSum);
+
+/*
 4. Dado un array de palabras, usa .map() con arrow function para crear un nuevo array con
 la longitud de cada palabra.
+*/
+const words = ["Hace", "mucho", "calor", "hoy", "!!!"];
+const wordLengths = words.map(word => word.length);
+console.log(wordLengths);
+/*
 5. Dado un array de objetos tipo {nombre: "Ana", edad: 25}, usa .filter() con una arrow
 function para obtener solo los mayores de edad.
+*/
+const people = [
+    { nombre: "Pablo", edad: 23 },
+    { nombre: "Miguel", edad: 17 },
+    { nombre: "Fernando", edad: 30 },
+    { nombre: "Sergio", edad: 15 }
+];
+const adults = people.filter(person => person.edad >= 18);
+console.log(adults);
+
+/*
 6. Dado un array de números, ordénalos de mayor a menor usando .sort() y una arrow
 function.
+*/
+const numbersToSort = [5, 3, 8, 1, 2];
+const sortedNumbers = numbersToSort.sort((a, b) => b - a);
+console.log(sortedNumbers);
 
+/*
 7. Dado un array de nombres, usa .map() para obtener un array con el número de letras de
 cada nombre.
+*/
+const names = ["Pablo", "Luis", "Pedro", "Sergio"];
+const nameLengths = names.map(name => name.length);
+console.log(nameLengths);
+
+/*
 8. Dado un array de objetos {producto: "Pan", precio: 2.5}, usa .map() para crear un array
 con frases como "El producto Pan cuesta 2.5€".
-9. Dado un array de números, usa .filter() para obtener solo los múltiplos de 3.
+*/
+const products = [
+    { producto: "Pan", precio: 2.5 },
+    { producto: "Leche", precio: 1.2 },
+    { producto: "Queso", precio: 3.0 }
+];
+const productDescriptions = products.map(product => `El producto ${product.producto} cuesta ${product.precio}€`);
+console.log(productDescriptions);
+
+
+//9. Dado un array de números, usa .filter() para obtener solo los múltiplos de 3.
+const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 21, 25, 27, 30];
+const multiplesOfThree = numbersArray.filter(num => num % 3 === 0);
+console.log(multiplesOfThree);
+
+/*
 10. Dado un array de objetos {nombre: "Ana", notas: [7, 9, 8]}, usa .map() y .reduce() para
 obtener un nuevo array con los promedios de cada persona.
-11. Dado un array de números, usa .reduce() para contar cuántos son pares.
+*/
+const students = [
+    { nombre: "Ana", notas: [7, 9, 8] },
+    { nombre: "Luis", notas: [6, 5, 7] },
+    { nombre: "Pedro", notas: [8, 9, 10] },
+    { nombre: "Sergio", notas: [5, 3, 1] },
+    { nombre: "Pablo", notas: [0, 0, 0] }
+];
+const averages = students.map(student => {
+    const total = student.notas.reduce((acc, nota) => acc + nota, 0);
+    const average = total / student.notas.length;
+    return { nombre: student.nombre, promedio: average };
+});
+console.log(averages);
+
+
+// 11. Dado un array de números, usa .reduce() para contar cuántos son pares.
+const numbersToCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const countEvens = numbersToCount.reduce((count, num) => {
+    return count + (num % 2 === 0 ? 1 : 0);
+}, 0);
+console.log(`Cantidad de números pares: ${countEvens}`);
+
+/*
 12. Dado un array de strings, usa .forEach() para imprimir cada uno con su posición (ej: "0:
 Hola").
-13. Dado un array de precios, usa .reduce() para calcular el total y luego el precio medio.
-14. Dado un array de nombres, usa .sort() para ordenarlos por orden alfabético inverso.
+*/
+const stringsArray = ["Hoy", "juega", "España", "contra", "Francia"];
+stringsArray.forEach((str, index) => {
+    console.log(`${index}: ${str}`);
+});
+
+// 13. Dado un array de precios, usa .reduce() para calcular el total y luego el precio medio.
+const prices = [10.5, 20.0, 15.75, 30.0];
+const totalPrice = prices.reduce((acc, price) => acc + price, 0);
+const averagePrice = totalPrice / prices.length;
+console.log(`Total: ${totalPrice.toFixed(2)}€, Promedio: ${averagePrice.toFixed(2)}€`);
+
+// 14. Dado un array de nombres, usa .sort() para ordenarlos por orden alfabético inverso.
+const namesArray = ["Zack", "Luis", "Antonio", "Braum"];
+const sortedNames = namesArray.sort((a, b) => b.localeCompare(a));
+console.log(sortedNames);
+/*
 15. Dado un array de objetos {nombre: "Pepe", edad: 30}, usa .sort() para ordenarlos de
 menor a mayor edad.
+*/
+const sortedByAge = people.sort((a, b) => a.edad - b.edad);
+console.log(sortedByAge);
+/*
 16. Dado un array de números, usa .filter() para eliminar los duplicados. (Pista: puedes usar
 .filter() junto con .indexOf().)
+*/
+const numbersWithDuplicates = [1, 2, 3, 2, 4, 5, 1, 6, 7, 8, 5, 2, 3, 2];
+const uniqueNumbers = numbersWithDuplicates.filter((num, index) => numbersWithDuplicates.indexOf(num) === index);
+console.log(uniqueNumbers);
+
+/*
 Clases + callbacks (ejercicio 1)
 Implementa una clase EventManager que permita gestionar un sistema de eventos de
 manera flexible. Esta clase deberá ofrecer los siguientes métodos:
