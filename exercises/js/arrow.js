@@ -195,6 +195,31 @@ doDishes();
 lanza un error, vuelve a intentarlo hasta veces veces. Cuando tenga éxito, imprime el
 resultado. Si falla siempre, imprime "Error final". La función fn tiene que tener un 70% de
 posibilidades de fallar.
+*/
+const tryFunction = (fn, attempts) => {
+    let success = false;
+    for (let i = 0; i < attempts; i++) {
+        try {
+            if (Math.random() < 0.7) {
+                throw new Error("Error al ejecutar la función");
+            }
+            const result = fn();
+            console.log(`Resultado: ${result}`);
+            success = true;
+            break;
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+    if (!success) {
+        console.log("Error final: No se pudo ejecutar la función después de varios intentos.");
+    }
+}
+tryFunction(() => {
+    return "Función ejecutada con éxito";
+}, 5);
+
+/*
 Ejercicios sobre Array Helpers
 1. Dado un array de números, usa .map() con arrow function para obtener un nuevo array
 con los cuadrados.
