@@ -164,21 +164,21 @@ const washDishes = (callback) => {
         console.log("Platos lavados.");
         callback();
     }
-    , 1000);
+        , 1000);
 }
 const dryDishes = (callback) => {
     setTimeout(() => {
         console.log("Platos secos.");
         callback();
     }
-    , 1000);
+        , 1000);
 }
 const putAwayDishes = (callback) => {
     setTimeout(() => {
         console.log("Platos guardados.");
         callback();
     }
-    , 1000);
+        , 1000);
 }
 const doDishes = () => {
     washDishes(() => {
@@ -390,6 +390,7 @@ encarga de emitir los mensajes y gestionar las suscripciones.
 class EventManager {
     constructor() {
         this.events = {};
+        this.callbacks = new Map();
     }
 
     subscribe(event, callback) {
@@ -397,6 +398,10 @@ class EventManager {
             this.events[event] = [];
         }
         this.events[event].push(callback);
+
+        if (!this.callbacks.has(callback)) {
+            this.callbacks.set(callback, callback);
+        }
     }
 
     emit(event, data) {
@@ -406,8 +411,12 @@ class EventManager {
     }
 
     cancel(event, callback) {
-        if (this.events[event]) {
-            this.events[event] = this.events[event].filter(cb => cb !== callback);
+        const originalCallback = this.callbacks.get(callback);
+        if (this.events[event] && originalCallback) {
+            this.events[event] = this.events[event].filter(cb => cb !== originalCallback);
+            if (this.events[event].length === 0) {
+                delete this.events[event];
+            }
         }
     }
 }
@@ -423,18 +432,21 @@ class User {
         console.log(`${this.name} ha recibido un mensaje: ${message}`);
     }
 }
+
 const eventManager = new EventManager();
 const user1 = new User("Rodri");
 const user2 = new User("Dani");
 
-eventManager.subscribe("message", user1.receiveMessage.bind(user1));
-eventManager.subscribe("message", user2.receiveMessage.bind(user2));
+const user1Callback = user1.receiveMessage.bind(user1);
+const user2Callback = user2.receiveMessage.bind(user2);
+
+eventManager.subscribe("message", user1Callback);
+eventManager.subscribe("message", user2Callback);
 
 eventManager.emit("message", "¡Hola a todos!");
 eventManager.emit("message", "¡Hoy juega España!");
 
-eventManager.cancel("message", user2.receiveMessage.bind(user2));
-eventManager.cancel("message", user1.receiveMessage.bind(user1));
+eventManager.cancel("message", user2Callback);
 
 eventManager.emit("message", "¡España gana 2-0!");
 
@@ -466,13 +478,13 @@ class Factory {
         this.steps = [];
     }
 
-    registerStep(callback) {
-        this.steps.push(callback);
+    registerStep(callback, stepName) {
+        this.steps.push({ execute: callback, name: stepName });
     }
 
     processProduct(product) {
         this.steps.forEach(step => {
-            product = step(product);
+            product = step.execute(product);
         });
         return product;
     }
@@ -494,6 +506,11 @@ class Product {
 const factory = new Factory();
 const product1 = new Product("Camiseta");
 const product2 = new Product("Pantalones");
+
+factory.registerStep((product) => {
+    product.markStep("Cortar");
+    return product;
+});
 
 factory.registerStep((product) => {
     product.markStep("Coser");
