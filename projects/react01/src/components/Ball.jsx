@@ -1,4 +1,4 @@
-function Ball() {
+function Ball({children}) {
     return (
         <div style={{
             width: '50px',
@@ -7,7 +7,9 @@ function Ball() {
             backgroundColor: 'red',
             display: 'inline-block',
             margin: '5px',
-        }}></div>
+        }}>
+            {children}
+        </div>
     );
 }
 

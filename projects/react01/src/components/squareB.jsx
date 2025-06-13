@@ -4,9 +4,7 @@ function SquareB({size, margin, border, color}) {
             width: size,
             height: size,
             margin: margin,
-            border: border,
-            borderColor: color,
-            borderStyle: 'solid',
+            border: border + ' solid ' + color,
         }}></div>
     );
 }
