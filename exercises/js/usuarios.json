@@ -1,0 +1,102 @@
+[
+  {
+    "nombre": "Yan Livicka",
+    "email": "yan.livicka@example.com",
+    "ciudad": "Noviy Bug"
+  },
+  {
+    "nombre": "Raquel Navarro",
+    "email": "raquel.navarro@example.com",
+    "ciudad": "Córdoba"
+  },
+  {
+    "nombre": "Iolita da Cunha",
+    "email": "iolita.dacunha@example.com",
+    "ciudad": "São Lourenço da Mata"
+  },
+  {
+    "nombre": "Alessio Lucas",
+    "email": "alessio.lucas@example.com",
+    "ciudad": "Pau"
+  },
+  {
+    "nombre": "George Robinson",
+    "email": "george.robinson@example.com",
+    "ciudad": "Gisborne"
+  },
+  {
+    "nombre": "Jon Douglas",
+    "email": "jon.douglas@example.com",
+    "ciudad": "York"
+  },
+  {
+    "nombre": "Loan Perrin",
+    "email": "loan.perrin@example.com",
+    "ciudad": "Nice"
+  },
+  {
+    "nombre": "Mason Lee",
+    "email": "mason.lee@example.com",
+    "ciudad": "Nelson"
+  },
+  {
+    "nombre": "Pavati Tipparti",
+    "email": "pavati.tipparti@example.com",
+    "ciudad": "Cuttack"
+  },
+  {
+    "nombre": "Eli Jones",
+    "email": "eli.jones@example.com",
+    "ciudad": "Hastings"
+  },
+  {
+    "nombre": "Éric Lacroix",
+    "email": "eric.lacroix@example.com",
+    "ciudad": "Löhningen"
+  },
+  {
+    "nombre": "Miki De Kreek",
+    "email": "miki.dekreek@example.com",
+    "ciudad": "Drunen"
+  },
+  {
+    "nombre": "Jasmine White",
+    "email": "jasmine.white@example.com",
+    "ciudad": "Stratford"
+  },
+  {
+    "nombre": "Dylan Watts",
+    "email": "dylan.watts@example.com",
+    "ciudad": "New York"
+  },
+  {
+    "nombre": "Kåre Samnøy",
+    "email": "kare.samnoy@example.com",
+    "ciudad": "Kråkstad"
+  },
+  {
+    "nombre": "René Van Liere",
+    "email": "rene.vanliere@example.com",
+    "ciudad": "Emmen"
+  },
+  {
+    "nombre": "Kimberly Soto",
+    "email": "kimberly.soto@example.com",
+    "ciudad": "Birr"
+  },
+  {
+    "nombre": "Ananth Saldanha",
+    "email": "ananth.saldanha@example.com",
+    "ciudad": "Chandrapur"
+  },
+  {
+    "nombre": "Wendy Naranjo",
+    "email": "wendy.naranjo@example.com",
+    "ciudad": "Ermita de los Correas"
+  },
+  {
+    "nombre": "Vselyud Klichko",
+    "email": "vselyud.klichko@example.com",
+    "ciudad": "Seredina-Buda"
+  }
+]
