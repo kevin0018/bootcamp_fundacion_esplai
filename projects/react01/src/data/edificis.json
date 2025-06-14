@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Burj Khalifa",
+    "city": "Dubai",
+    "country": "Emirats Àrabs Units",
+    "height_m": 828,
+    "year": 2010,
+    "floors": 163
+  },
+  {
+    "name": "Merdeka 118",
+    "city": "Kuala Lumpur",
+    "country": "Malàisia",
+    "height_m": 678.9,
+    "year": 2023,
+    "floors": 118
+  },
+  {
+    "name": "Shanghai Tower",
+    "city": "Shanghai",
+    "country": "Xina",
+    "height_m": 632,
+    "year": 2015,
+    "floors": 128
+  },
+  {
+    "name": "Abraj Al-Bait Clock Tower",
+    "city": "La Meca",
+    "country": "Aràbia Saudita",
+    "height_m": 601,
+    "year": 2012,
+    "floors": 120
+  },
+  {
+    "name": "Ping An Finance Center",
+    "city": "Shenzhen",
+    "country": "Xina",
+    "height_m": 599.1,
+    "year": 2017,
+    "floors": 115
+  },
+  {
+    "name": "Lotte World Tower",
+    "city": "Seül",
+    "country": "Corea del Sud",
+    "height_m": 555,
+    "year": 2016,
+    "floors": 123
+  },
+  {
+    "name": "One World Trade Center",
+    "city": "Nova York",
+    "country": "Estats Units",
+    "height_m": 541.3,
+    "year": 2014,
+    "floors": 104
+  },
+  {
+    "name": "Guangzhou CTF Finance Centre",
+    "city": "Guangzhou",
+    "country": "Xina",
+    "height_m": 530,
+    "year": 2016,
+    "floors": 111
+  },
+  {
+    "name": "Tianjin CTF Finance Centre",
+    "city": "Tianjin",
+    "country": "Xina",
+    "height_m": 530,
+    "year": 2019,
+    "floors": 97
+  },
+  {
+    "name": "China Zun (CITIC Tower)",
+    "city": "Pequín",
+    "country": "Xina",
+    "height_m": 528,
+    "year": 2018,
+    "floors": 108
+  },
+  {
+    "name": "Taipei 101",
+    "city": "Taipei",
+    "country": "Taiwan",
+    "height_m": 508,
+    "year": 2004,
+    "floors": 101
+  },
+  {
+    "name": "Shanghai World Financial Center",
+    "city": "Shanghai",
+    "country": "Xina",
+    "height_m": 492,
+    "year": 2008,
+    "floors": 101
+  },
+  {
+    "name": "International Commerce Centre",
+    "city": "Hong Kong",
+    "country": "Xina",
+    "height_m": 484,
+    "year": 2010,
+    "floors": 108
+  },
+  {
+    "name": "Wuhan Greenland Center",
+    "city": "Wuhan",
+    "country": "Xina",
+    "height_m": 475.6,
+    "year": 2022,
+    "floors": 101
+  },
+  {
+    "name": "Lakhta Center",
+    "city": "Sant Petersburg",
+    "country": "Rússia",
+    "height_m": 462.5,
+    "year": 2019,
+    "floors": 87
+  },
+  {
+    "name": "Landmark 81",
+    "city": "Ho Chi Minh",
+    "country": "Vietnam",
+    "height_m": 461.2,
+    "year": 2018,
+    "floors": 81
+  },
+  {
+    "name": "Changsha IFS Tower T1",
+    "city": "Changsha",
+    "country": "Xina",
+    "height_m": 452.1,
+    "year": 2018,
+    "floors": 94
+  },
+  {
+    "name": "Petronas Tower 1",
+    "city": "Kuala Lumpur",
+    "country": "Malàisia",
+    "height_m": 451.9,
+    "year": 1998,
+    "floors": 88
+  },
+  {
+    "name": "Petronas Tower 2",
+    "city": "Kuala Lumpur",
+    "country": "Malàisia",
+    "height_m": 451.9,
+    "year": 1998,
+    "floors": 88
+  },
+  {
+    "name": "Zifeng Tower",
+    "city": "Nanjing",
+    "country": "Xina",
+    "height_m": 450,
+    "year": 2010,
+    "floors": 89
+  }
+]
