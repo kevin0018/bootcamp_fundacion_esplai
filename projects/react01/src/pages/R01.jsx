@@ -20,7 +20,6 @@ function R01() {
 
 	return (
 		<>
-			<button onClick={() => window.location.href = '/'}>Volver a la página principal</button>
 			<HelloWorld />
 			<Separator />
 			<Square />

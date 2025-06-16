@@ -1,29 +1,38 @@
-import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import R01 from './pages/R01.jsx';
-import R03 from './pages/R03.jsx';
+
+import R01 from './pages/R01';
+import R02 from './pages/R02.jsx';
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('home');
+    return (
+        <Router>
+            <div className="min-vh-100 d-flex flex-column align-items-center justify-content-center">
+                {/* Navigation and Header */}
+                <header className="text-center mb-4">
+                    <h1 className="fw-bold text-light">Ejercicios</h1>
+                </header>
 
-    const renderPage = () => {
-        switch (currentPage) {
-            case 'r01':
-                return <R01 />;
-			case 'r03':
-				return <R03 />;
-            default:
-                return (
-                    <>
-                        <h1>Ejercicios</h1>
-                        <button onClick={() => setCurrentPage('r01')}>Ir a R01</button>
-						<button onClick={() => setCurrentPage('r03')}>Ir a R03</button>
-                    </>
-                );
-        }
-    };
+                {/* Buttons */}
+                <nav className="d-flex gap-3">
+                    <Link to="/r01" className="btn btn-primary">Ir a R01</Link>
+                    <Link to="/r02" className="btn btn-primary">Ir a R02</Link>
+                </nav>
 
-    return <div>{renderPage()}</div>;
+                {/* Route Definitions */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/r01" element={<R01 />} />
+                    <Route path="/r02" element={<R02 />} />
+                </Routes>
+            </div>
+        </Router>
+    );
+}
+
+// Home Page Component
+function Home() {
+    return <h2>Selecciona un ejercicio para empezar</h2>;
 }
 
 export default App;
