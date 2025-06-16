@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
-import R01 from './pages/R01';
+import R01 from './pages/R01.jsx';
 import R02 from './pages/R02.jsx';
+import R03 from './pages/R03.jsx';
 
 function App() {
     return (
@@ -15,8 +16,10 @@ function App() {
 
                 {/* Buttons */}
                 <nav className="d-flex gap-3">
+                    <Link to="/" className="btn btn-primary">Ir a Home</Link>
                     <Link to="/r01" className="btn btn-primary">Ir a R01</Link>
                     <Link to="/r02" className="btn btn-primary">Ir a R02</Link>
+                    <Link to="/r03" className="btn btn-primary">Ir a R03</Link>
                 </nav>
 
                 {/* Route Definitions */}
@@ -24,6 +27,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/r01" element={<R01 />} />
                     <Route path="/r02" element={<R02 />} />
+                    <Route path="/r03" element={<R03 />} />
                 </Routes>
             </div>
         </Router>
