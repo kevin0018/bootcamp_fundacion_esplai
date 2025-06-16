@@ -1,52 +1,29 @@
-import HelloWorld from './components/HelloWorld.jsx'
-import Separator from './components/Separator.jsx'
-import Square from './components/square.jsx'
-import Ball from './components/Ball.jsx'
-import Title from './components/Title.jsx'
-import BallX from './components/BallX.jsx'
-import SquareB from './components/squareB.jsx'
-import './App.css'
-import Fly from './components/Fly.jsx'
-import Capital from './components/Capital.jsx'
-import Cat from './components/Cat.jsx'
-import PhotoBall from './components/PhotoBall.jsx'
-import BingoBall from './components/BingoBall.jsx'
-import PhotoBallX from './components/PhotoBallX.jsx'
-import PictureFrame from './components/PictureFrame.jsx'
-import Buildings from "./components/Buildings.jsx";
-import buildings from './data/edificis.json'
+import { useState } from 'react';
+import './App.css';
+import R01 from './pages/R01.jsx';
+import R03 from './pages/R03.jsx';
 
 function App() {
+    const [currentPage, setCurrentPage] = useState('home');
 
-	return (
-		<>
-			<HelloWorld/>
-			<Separator/>
-			<Square/>
-			<Ball/>
-			<Separator/>
-			<Title text = '¡Hola React!'/>
-			<BallX size = '80px' margin = '10px' background = '#ff0000'/>
-			<SquareB size = '70px' margin = '8px' border = '5px' color = 'red'/>
-			<Fly color = 'blue'/>
-			<Capital word = 'Barcelona'/>
-			<Cat height = '200' width = '200' name = 'Garfield'/>
-			<PhotoBall src = 'http://loremflickr.com/200/200' radius = '100'/>
-			<BingoBall num = {8}/>
-			<PhotoBallX src = 'http://loremflickr.com/200/200' radius = '100'/>
-			<PictureFrame
-				src = 'http://loremflickr.com/200/300'
-				width = '200'
-				height = '300'
-				padding = '10'
-				color = 'brown'
-				background = 'beige'
-			/>
-			<Buildings buildings = {buildings}/>
+    const renderPage = () => {
+        switch (currentPage) {
+            case 'r01':
+                return <R01 />;
+			case 'r03':
+				return <R03 />;
+            default:
+                return (
+                    <>
+                        <h1>Ejercicios</h1>
+                        <button onClick={() => setCurrentPage('r01')}>Ir a R01</button>
+						<button onClick={() => setCurrentPage('r03')}>Ir a R03</button>
+                    </>
+                );
+        }
+    };
 
-
-		</>
-	)
+    return <div>{renderPage()}</div>;
 }
 
-export default App
+export default App;
