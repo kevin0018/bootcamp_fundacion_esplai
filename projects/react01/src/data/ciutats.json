@@ -1,0 +1,308 @@
+[
+    {
+        "municipi": "Barcelona",
+        "poblacio": 1620809,
+        "provincia": "Barcelona",
+        "comarca": "Barcelonès"
+    },
+    {
+        "municipi": "L'Hospitalet de Llobregat",
+        "poblacio": 257349,
+        "provincia": "Barcelona",
+        "comarca": "Barcelonès"
+    },
+    {
+        "municipi": "Badalona",
+        "poblacio": 217741,
+        "provincia": "Barcelona",
+        "comarca": "Barcelonès"
+    },
+    {
+        "municipi": "Terrassa",
+        "poblacio": 216428,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Sabadell",
+        "poblacio": 209931,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Lleida",
+        "poblacio": 137327,
+        "provincia": "Lleida",
+        "comarca": "Segrià"
+    },
+    {
+        "municipi": "Tarragona",
+        "poblacio": 131507,
+        "provincia": "Tarragona",
+        "comarca": "Tarragonès"
+    },
+    {
+        "municipi": "Mataró",
+        "poblacio": 126127,
+        "provincia": "Barcelona",
+        "comarca": "Maresme"
+    },
+    {
+        "municipi": "Santa Coloma de Gramenet",
+        "poblacio": 117597,
+        "provincia": "Barcelona",
+        "comarca": "Barcelonès"
+    },
+    {
+        "municipi": "Reus",
+        "poblacio": 103123,
+        "provincia": "Tarragona",
+        "comarca": "Baix Camp"
+    },
+    {
+        "municipi": "Girona",
+        "poblacio": 100266,
+        "provincia": "Girona",
+        "comarca": "Gironès"
+    },
+    {
+        "municipi": "Sant Cugat del Vallès",
+        "poblacio": 89516,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Cornellà de Llobregat",
+        "poblacio": 86610,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Sant Boi de Llobregat",
+        "poblacio": 82142,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Rubí",
+        "poblacio": 75568,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Manresa",
+        "poblacio": 75152,
+        "provincia": "Barcelona",
+        "comarca": "Bages"
+    },
+    {
+        "municipi": "Vilanova i la Geltrú",
+        "poblacio": 66077,
+        "provincia": "Barcelona",
+        "comarca": "Garraf"
+    },
+    {
+        "municipi": "Viladecans",
+        "poblacio": 65993,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Castelldefels",
+        "poblacio": 65954,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "El Prat de Llobregat",
+        "poblacio": 63897,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Granollers",
+        "poblacio": 60695,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Oriental"
+    },
+    {
+        "municipi": "Cerdanyola del Vallès",
+        "poblacio": 57723,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Mollet del Vallès",
+        "poblacio": 51128,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Oriental"
+    },
+    {
+        "municipi": "Gavà",
+        "poblacio": 46538,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Figueres",
+        "poblacio": 45961,
+        "provincia": "Girona",
+        "comarca": "Alt Empordà"
+    },
+    {
+        "municipi": "Esplugues de Llobregat",
+        "poblacio": 45890,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Sant Feliu de Llobregat",
+        "poblacio": 44198,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Vic",
+        "poblacio": 43964,
+        "provincia": "Barcelona",
+        "comarca": "Osona"
+    },
+    {
+        "municipi": "Igualada",
+        "poblacio": 39540,
+        "provincia": "Barcelona",
+        "comarca": "Anoia"
+    },
+    {
+        "municipi": "Vilafranca del Penedès",
+        "poblacio": 39532,
+        "provincia": "Barcelona",
+        "comarca": "Alt Penedès"
+    },
+    {
+        "municipi": "Blanes",
+        "poblacio": 38813,
+        "provincia": "Girona",
+        "comarca": "Selva"
+    },
+    {
+        "municipi": "Ripollet",
+        "poblacio": 37899,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Lloret de Mar",
+        "poblacio": 36878,
+        "provincia": "Girona",
+        "comarca": "Selva"
+    },
+    {
+        "municipi": "Sant Adrià de Besòs",
+        "poblacio": 36624,
+        "provincia": "Barcelona",
+        "comarca": "Barcelonès"
+    },
+    {
+        "municipi": "El Vendrell",
+        "poblacio": 36568,
+        "provincia": "Tarragona",
+        "comarca": "Baix Penedès"
+    },
+    {
+        "municipi": "Montcada i Reixac",
+        "poblacio": 35063,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Olot",
+        "poblacio": 34194,
+        "provincia": "Girona",
+        "comarca": "Garrotxa"
+    },
+    {
+        "municipi": "Sant Joan Despí",
+        "poblacio": 33873,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Tortosa",
+        "poblacio": 33445,
+        "provincia": "Tarragona",
+        "comarca": "Baix Ebre"
+    },
+    {
+        "municipi": "Barberà del Vallès",
+        "poblacio": 32860,
+        "provincia": "Barcelona",
+        "comarca": "Vallès Occidental"
+    },
+    {
+        "municipi": "Cambrils",
+        "poblacio": 32855,
+        "provincia": "Tarragona",
+        "comarca": "Baix Camp"
+    },
+    {
+        "municipi": "Sant Pere de Ribes",
+        "poblacio": 30142,
+        "provincia": "Barcelona",
+        "comarca": "Garraf"
+    },
+    {
+        "municipi": "Salt",
+        "poblacio": 29836,
+        "provincia": "Girona",
+        "comarca": "Gironès"
+    },
+    {
+        "municipi": "Sitges",
+        "poblacio": 28527,
+        "provincia": "Barcelona",
+        "comarca": "Garraf"
+    },
+    {
+        "municipi": "Premià de Mar",
+        "poblacio": 28049,
+        "provincia": "Barcelona",
+        "comarca": "Maresme"
+    },
+    {
+        "municipi": "Sant Vicenç dels Horts",
+        "poblacio": 27982,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Martorell",
+        "poblacio": 27681,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Sant Andreu de la Barca",
+        "poblacio": 27303,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Pineda de Mar",
+        "poblacio": 26986,
+        "provincia": "Barcelona",
+        "comarca": "Maresme"
+    },
+    {
+        "municipi": "Esparreguera",
+        "poblacio": 26288,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    },
+    {
+        "municipi": "Molins de Rei",
+        "poblacio": 26145,
+        "provincia": "Barcelona",
+        "comarca": "Baix Llobregat"
+    }
+]
