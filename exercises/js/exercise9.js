@@ -1,4 +1,3 @@
-// IMPORTS
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
@@ -7,6 +6,10 @@ import { Command } from 'commander';
 /**
  * Base FormatHandler class
  * Abstract class for handling file formats
+ *  @class FormatHandler
+ *  @abstract
+ *  @method read - Reads data from file
+ *  @method write - Writes data to file
  */
 class FormatHandler {
     /**
@@ -30,6 +33,12 @@ class FormatHandler {
 
 /**
  * Handler for CSV format
+ *     @class CSVHandler
+ *     @extends FormatHandler
+ *     @method read - Reads CSV data from a file
+ *     @method write - Writes data to a CSV file
+ *     @param {string} separator - The separator used in the CSV file (default is ',')
+ *     @throws {Error} - If the CSV file is empty or not in the expected format
  */
 class CSVHandler extends FormatHandler {
     constructor(separator = ',') {
@@ -70,6 +79,10 @@ class CSVHandler extends FormatHandler {
 
 /**
  * Handler for JSON format
+ *    @class JSONHandler
+ *    @extends FormatHandler
+ *    @method read - Reads JSON data from a file
+ *    @method write - Writes data to a JSON file
  */
 class JSONHandler extends FormatHandler {
     read(filePath) {
@@ -84,6 +97,10 @@ class JSONHandler extends FormatHandler {
 
 /**
  * Handler for TXT format
+ *   @class TXTHandler
+ *   @extends FormatHandler
+ *   @method read - Reads TXT data from a file
+ *   @method write - Writes data to a TXT file
  */
 class TXTHandler extends FormatHandler {
     read(filePath) {
@@ -109,6 +126,10 @@ class TXTHandler extends FormatHandler {
 
 /**
  * Handler for YAML format
+ *  @class YAMLHandler
+ *  @extends FormatHandler
+ *  @method read - Reads YAML data from a file
+ *  @method write - Writes data to a YAML file
  */
 class YAMLHandler extends FormatHandler {
     read(filePath) {
@@ -123,7 +144,15 @@ class YAMLHandler extends FormatHandler {
 }
 
 /**
- * Factory for creating appropriate FormatHandler
+ * Factory for creating format handlers
+ * Based on the requested format, it returns the appropriate handler instance
+ *  @class FormatHandlerFactory
+ *  @static
+ *  @method createHandler
+ *  @param {string} format - The format type (csv, json, txt, yaml)
+ *  @param {Object} [options] - Additional options (e.g., separator for CSV)
+ *  @returns {FormatHandler} - An instance of the appropriate handler
+ *  @throws {Error} - If the format is not supported
  */
 class FormatHandlerFactory {
     static createHandler(format, options = {}) {
