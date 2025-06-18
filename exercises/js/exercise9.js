@@ -229,3 +229,4 @@ program.parse(process.argv);
 // node exercise9.js --file=assets/usuarios.yaml --from=yaml --to=json
 // node exercise9.js --file=assets/clientes.csv --from=csv --to=yaml --sep=";"
 // node exercise9.js --file=assets/productos.json --from=json --to=txt
+// node exercise9.js --file=assets/mal_formato_limpio.json --from=json --to=yaml
