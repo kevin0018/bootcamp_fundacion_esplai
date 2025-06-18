@@ -5,6 +5,7 @@ import R01 from './pages/R01.jsx';
 import R02 from './pages/R02.jsx';
 import R03 from './pages/R03.jsx';
 import R04 from './pages/R04.jsx';
+import R06 from './pages/R06.jsx';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Link to="/r02" className="btn btn-primary">Ir a R02</Link>
                     <Link to="/r03" className="btn btn-primary">Ir a R03</Link>
                     <Link to="/r04" className="btn btn-primary">Ir a R04</Link>
+                    <Link to="/r06" className="btn btn-primary">Ir a R06</Link>
                 </nav>
 
                 {/* Route Definitions */}
@@ -31,6 +33,7 @@ function App() {
                     <Route path="/r02" element={<R02 />} />
                     <Route path="/r03" element={<R03 />} />
                     <Route path="/r04" element={<R04 />} />
+                    <Route path="/r06" element={<R06 />} />
                 </Routes>
             </div>
         </Router>
