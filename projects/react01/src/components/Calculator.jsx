@@ -1,37 +1,3 @@
-/*
-Componente principal.
-States:
-    display
-    valorAnterior
-    operacion
-
-Funciones:
-    borrarDisplay
-    pone a 0 el display y borra los valores 1, 2 y la operación en curso 
-    pulsar(x)
-    si x es un número o “,” lo escribe en el display
-    si es una operación (/ + - *) guarda el valor del display en 'valorAnterior' y la operación en 'operacion'
-    si es '=' llama a la función calcular
-    si es 'C' llama a borrarDisplay
-    calcular dependiendo de la operación, realiza cálculo entre valorAnterior y el valor en display
-    si no hay valorAnterior no hace nada
-
-actualiza el display con el resultado
-
-Subcomponentes:
-<Display
-<Tecla
-
-Display:
-Componente que muestra el valor suministrado
-States: ninguno
-Props: contenido
-
-Tecla:
-Componente tecla, debe mostrar el un botón con el valor recibido como etiqueta y llamar a la función pulsar devolviendo el mismo valor 
-States: ninguno
-Props: pulsar (método), valor (string)
-*/
 import { useState } from "react";
 import Display from "./Display";
 import CalculatorKey from "./CalculatorKey";
@@ -49,16 +15,14 @@ function Calculator() {
 
     const press = (x) => {
         if (!isNaN(x) || x === ",") {
-            // if it's a number or a comma, we append it to the display
             setDisplay((prev) => (prev === "0" ? x : prev + x));
         } else if (["/", "+", "-", "*"].includes(x)) {
-            // if it's an operation, we save the current display value and set the operation
             setLastValue(display);
             setOperation(x);
             setDisplay("0");
         } else if (x === "=") {
             calculate();
-        } else if (x === "C") {
+        } else if (x === "AC") {
             deleteDisplay();
         }
     };
@@ -67,8 +31,8 @@ function Calculator() {
         if (lastValue === null || operation === null) return;
 
         let result;
-        const currentValue = parseFloat(display);
-        const previousValue = parseFloat(lastValue);
+        const currentValue = parseFloat(display.replace(",", "."));
+        const previousValue = parseFloat(lastValue.replace(",", "."));
 
         switch (operation) {
             case "/":
@@ -87,34 +51,52 @@ function Calculator() {
                 return;
         }
 
-        setDisplay(result.toString());
+        setDisplay(result.toString().replace(".", ","));
         setLastValue(null);
         setOperation(null);
     };
-    // Style with bootstrap
+
     return (
-        <div className="d-flex flex-col justify-center items-center gap-2 p-4">
+        <div className="calculator-container">
             <Display contenido={display} />
-            <div className="d-flex flex-wrap justify-center items-center">
-                {["7", "8", "9", "/"].map((key) => (
-                    <CalculatorKey key={key} press={press} value={key} />
+            <div className="calculator-keys">
+                {["AC", "+/-", "%", "/"].map((key) => (
+                    <CalculatorKey key={key} press={press} value={key} isOperator={key === "/"} />
                 ))}
-                {["4", "5", "6", "*"].map((key) => (
-                    <CalculatorKey key={key} press={press} value={key} />
+                {["7", "8", "9", "*"].map((key) => (
+                    <CalculatorKey key={key} press={press} value={key} isOperator={key === "*"} />
                 ))}
-                {["1", "2", "3", "-"].map((key) => (
-                    <CalculatorKey
-                        key={key}
-                        press={press}
-                        value={key}
-                    />
+                {["4", "5", "6", "-"].map((key) => (
+                    <CalculatorKey key={key} press={press} value={key} isOperator={key === "-"} />
                 ))}
-                {["0", ",", "=", "+"].map((key) => (
-                    <CalculatorKey key={key} press={press} value={key} />
+                {["1", "2", "3", "+"].map((key) => (
+                    <CalculatorKey key={key} press={press} value={key} isOperator={key === "+"} />
                 ))}
-                <CalculatorKey press={deleteDisplay} value="C" />
+                <CalculatorKey press={press} value="0" isWide />
+                {[",", "="].map((key) => (
+                    <CalculatorKey key={key} press={press} value={key} isOperator={key === "="} />
+                ))}
             </div>
+            <style jsx>{`
+                .calculator-container {
+                    max-width: 340px;
+                    margin: auto;
+                    background: #333;
+                    border-radius: 20px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .calculator-keys {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1px;
+                }
+            `}</style>
         </div>
     );
 }
+
 export default Calculator;

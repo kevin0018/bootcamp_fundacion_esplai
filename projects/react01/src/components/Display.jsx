@@ -1,15 +1,17 @@
-/*
-Display:
-    Componente que muestra el valor suministrado
-        States: ninguno
-        Props: contenido
-*/
-
-function Display({ content }) {
-    // bootstrap
+function Display({ contenido }) {
     return (
-        <div className="d-flex justify-content-end align-items-center bg-light border rounded p-2">
-            <span>{content}</span>
+        <div className="calculator-display">
+            {contenido}
+            <style jsx>{`
+                .calculator-display {
+                    font-size: 2.8rem;
+                    text-align: right;
+                    padding: 15px 20px;
+                    color: white;
+                    background: #4c4c4c;
+                    border-bottom: 1px solid #333;
+                }
+            `}</style>
         </div>
     );
 }
