@@ -1,10 +1,10 @@
-function CalculatorKey({ value, press, isOperator, isWide }) {
+// Key button component
+function CalculatorKey({ value, press, isOperator, isLightGray, isWide }) {
     return (
         <button
-            className={`calculator-key btn ${
-                isOperator ? "btn-warning" : "btn-secondary"
-            } ${isWide ? "wide-key" : ""}`}
+            className={`calculator-key${isOperator ? " operator" : ""}${isLightGray ? " light-gray" : ""}${isWide ? " wide" : ""}`}
             onClick={() => press(value)}
+            tabIndex={0}
         >
             {value}
             <style jsx>{`
@@ -12,25 +12,26 @@ function CalculatorKey({ value, press, isOperator, isWide }) {
                     font-size: 1.5rem;
                     height: 70px;
                     width: 100%;
+                    border: none;
+                    background: #666;
+                    color: white;
+                    outline: none;
                     border-radius: 0;
+                    transition: background 0.2s;
                 }
-
-                .wide-key {
-                    grid-column: span 2;
-                }
-
-                .btn-warning {
-                    background-color: #f90 !important;
-                    border: none;
-                }
-
-                .btn-secondary {
-                    background-color: #666 !important;
-                    border: none;
-                }
-
                 .calculator-key:hover {
-                    opacity: 0.8;
+                    background: #777;
+                }
+                .operator {
+                    background: #f90 !important;
+                    color: white;
+                }
+                .light-gray {
+                    background: #bbb !important;
+                    color: black;
+                }
+                .wide {
+                    grid-column: span 2;
                 }
             `}</style>
         </button>
