@@ -1,7 +1,9 @@
+import Password from "../components/Password";
 function R09() {
   return (
     <div>
-      <h1>R09 Page</h1>
+      <h2>Password</h2>
+       <Password secret={[0,0,1,1,0,1]} />
     </div>
   );
 }
