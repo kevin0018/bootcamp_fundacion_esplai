@@ -1,66 +1,87 @@
-/*
-El componente Password tiene un único state [valores, setValores] cuyo valor inicial será un array con tantos ceros como elementos tenga props.secret:
-
-const [valors, setValors] = useState(props.secret.map(e => 0));
-
-Se muestran siempre 6 "bolas" como elmentos tenga el array props.secret
-
-Clicando sobre una bola se modifica el state valores:
-cada bola debe recibir via props el valor que le corresponde (1/0) y una función que permita modificar este valor en el state del componente Password. 
-
-
-
-
-El mensaje que se muestra depende de si el array valores es igual al array secreto, por ejemplo:
-
-
-
-
-let mensaje_a_mostrar = '---';
-if (arrays_iguales(valores, props.secret){
-      mensaje_a_mostrar="ADELANTE!";
-}
-
-(es necesario implementar la función arrays_iguales)
-
-*/
 import { useState } from 'react';
 
+// Password component: visual password entry with indicator balls
 function Password({ secret }) {
-    const [values, setValores] = useState(secret.map(e => 0));
-    
+    // State: array with value for each ball (0 or 1)
+    const [values, setValues] = useState(secret.map(() => 0));
 
+    // Toggle value at the given index
     const handleClick = (index) => {
         const newValues = [...values];
         newValues[index] = newValues[index] === 0 ? 1 : 0;
-        setValores(newValues);
+        setValues(newValues);
     };
 
-    let msg_to_show = '---';
-    if (arrays_iguales(values, secret)) {
-        msg_to_show = "ADELANTE!";
+    // Message depending on state
+    let msgToShow = '---';
+    if (arraysEqual(values, secret)) {
+        msgToShow = 'ADELANTE!';
     }
 
     return (
-        <div>
-            <h2>Password</h2>
-            <div className="password-balls">
+        <div className="password-bg">
+            <div className="balls-row">
                 {values.map((value, index) => (
-                    <div
+                    <button
                         key={index}
-                        className={`ball ${value === 1 ? 'active' : ''}`}
+                        className={`ball${value === 1 ? ' active' : ''}`}
                         onClick={() => handleClick(index)}
-                    >
-                        {value}
-                    </div>
+                        aria-label={`Posición ${index + 1}`}
+                        type="button"
+                    />
                 ))}
             </div>
-            <p>{msg_to_show}</p>
+            <div className="password-msg">
+                {msgToShow}
+            </div>
+            <style jsx>{`
+                .password-bg {
+                    background: #fafae3;
+                    padding: 1.5rem 0 2.5rem 0;
+                    border-radius: 0.5rem;
+                    max-width: 100vw;
+                    text-align: center;
+                }
+                .balls-row {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    margin-bottom: 1.3rem;
+                    min-height: 44px;
+                }
+                .ball {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: #888;
+                    border: none;
+                    cursor: pointer;
+                    transition: background .2s;
+                    outline: none;
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                }
+                .ball.active {
+                    background: #ffa600;
+                }
+                .ball:focus {
+                    outline: 2px solid #222;
+                }
+                .password-msg {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    font-family: 'Georgia', serif;
+                    color: #222;
+                    letter-spacing: 1px;
+                }
+            `}</style>
         </div>
     );
 }
 
-function arrays_iguales(arr1, arr2) {
+// Utility: compare arrays for equality (by value and order)
+function arraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
     for (let i = 0; i < arr1.length; i++) {
         if (arr1[i] !== arr2[i]) return false;
