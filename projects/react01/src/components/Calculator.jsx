@@ -28,6 +28,20 @@ function Calculator() {
         } else if (x === "AC") {
             deleteDisplay();
         }
+        // Add logic for +/- button
+        else if (x === "+/-") {
+            setDisplay((prev) => {
+                const value = parseFloat(prev.replace(",", "."));
+                return (-value).toString().replace(".", ",");
+            });
+        }
+        // Ensure display updates correctly for %
+        else if (x === "%") {
+            setDisplay((prev) => {
+                const value = parseFloat(prev.replace(",", "."));
+                return (value / 100).toString().replace(".", ",");
+            });
+        }
     };
 
     // Calculation logic
@@ -87,7 +101,7 @@ function Calculator() {
                 <CalculatorKey press={press} value="," />
                 <CalculatorKey press={press} value="=" isOperator />
             </div>
-            <style jsx>{`
+            <style jsx="true">{`
                 .calculator-container {
                     max-width: 340px;
                     margin: auto;

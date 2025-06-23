@@ -130,7 +130,7 @@ function R02() {
 			</ol>
 
 
-			<style jsx>{`
+			<style jsx="true">{`
                 .circles-container {
                     display: flex;
                     flex-wrap: wrap;

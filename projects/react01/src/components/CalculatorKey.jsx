@@ -7,7 +7,7 @@ function CalculatorKey({ value, press, isOperator, isLightGray, isWide }) {
             tabIndex={0}
         >
             {value}
-            <style jsx>{`
+            <style jsx="true">{`
                 .calculator-key {
                     font-size: 1.5rem;
                     height: 70px;

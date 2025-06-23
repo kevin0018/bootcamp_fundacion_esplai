@@ -39,13 +39,9 @@ function PaginationComponent({ min = 1, max = 10 }) {
                         key={pageNumber}
                         active={page === pageNumber}
                         onClick={() => setPage(pageNumber)}
+                        href={`/p${pageNumber}`}
                     >
-                        <a
-                            href={`/p${pageNumber}`}
-                            style={{ textDecoration: 'none', color: 'inherit' }}
-                        >
-                            {pageNumber}
-                        </a>
+                        {pageNumber}
                     </Pagination.Item>
                 );
             })}

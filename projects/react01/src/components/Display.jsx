@@ -1,41 +1,20 @@
-// Key button component
-function CalculatorKey({ value, press, isOperator, isLightGray, isWide }) {
+// Display component
+function Display({ contenido }) {
     return (
-        <button
-            className={`calculator-key${isOperator ? " operator" : ""}${isLightGray ? " light-gray" : ""}${isWide ? " wide" : ""}`}
-            onClick={() => press(value)}
-            tabIndex={0}
-        >
-            {value}
-            <style jsx>{`
-                .calculator-key {
-                    font-size: 1.5rem;
-                    height: 70px;
-                    width: 100%;
-                    border: none;
-                    background: #666;
+        <div className="calculator-display">
+            {contenido}
+            <style jsx="true">{`
+                .calculator-display {
+                    font-size: 2rem;
+                    background: #222;
                     color: white;
-                    outline: none;
-                    border-radius: 0;
-                    transition: background 0.2s;
-                }
-                .calculator-key:hover {
-                    background: #777;
-                }
-                .operator {
-                    background: #f90 !important;
-                    color: white;
-                }
-                .light-gray {
-                    background: #bbb !important;
-                    color: black;
-                }
-                .wide {
-                    grid-column: span 2;
+                    text-align: right;
+                    padding: 10px;
+                    border-bottom: 1px solid #444;
                 }
             `}</style>
-        </button>
+        </div>
     );
 }
 
-export default CalculatorKey;
+export default Display;
