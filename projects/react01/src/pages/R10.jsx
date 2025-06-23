@@ -1,7 +1,8 @@
+import Login from '../components/Login';
 function R10 () {
   return (
     <div>
-      <h2>R10</h2>
+      <Login correctName="Kevin" correctPassword="123" />
     </div>
   );
 }
