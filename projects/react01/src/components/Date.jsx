@@ -15,28 +15,31 @@ function Date() {
 
     // Returns the number of days passed since the beginning of the year
     const getDaysPassed = (date) => {
-        const startOfYear = new Date(date.getFullYear(), 0, 1);
+        const startOfYear = new window.Date(date.getFullYear(), 0, 1);
         return Math.floor((date - startOfYear) / (1000 * 60 * 60 * 24));
     };
 
     // Returns the number of days left in the year
     const getDaysLeft = (date) => {
-        const endOfYear = new Date(date.getFullYear() + 1, 0, 1);
+        const endOfYear = new window.Date(date.getFullYear() + 1, 0, 1);
         return Math.floor((endOfYear - date) / (1000 * 60 * 60 * 24));
     };
 
     // Returns the percentage of the year that has passed
     const getYearPercentage = (date) => {
-        const startOfYear = new Date(date.getFullYear(), 0, 1);
-        const endOfYear = new Date(date.getFullYear() + 1, 0, 1);
+        const startOfYear = new window.Date(date.getFullYear(), 0, 1);
+        const endOfYear = new window.Date(date.getFullYear() + 1, 0, 1);
         return ((date - startOfYear) / (endOfYear - startOfYear)) * 100;
     };
 
-    // If no date is selected, return null
-    if (!selectedDate) return null;
+    // Always render the input, only show info if a valid date is selected
+    let dateObj = null;
+    let isValidDate = false;
+    if (selectedDate) {
+        dateObj = new window.Date(selectedDate + 'T00:00:00'); // Ensures correct parsing in all browsers
+        isValidDate = !isNaN(dateObj.getTime());
+    }
 
-    const dateObj = new Date(selectedDate);
-    
     return (
         <div className="container mt-4">
             <h2>Selecciona una fecha</h2>
@@ -46,7 +49,7 @@ function Date() {
                 onChange={handleDateChange} 
                 className="form-control mb-3"
             />
-            {selectedDate && (
+            {isValidDate && (
                 <div className="mt-3">
                     <p><strong>Día de la semana:</strong> {getDayOfWeek(dateObj)}</p>
                     <p><strong>Días transcurridos desde el inicio del año:</strong> {getDaysPassed(dateObj)}</p>

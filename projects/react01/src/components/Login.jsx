@@ -48,7 +48,7 @@ function Login({ correctName, correctPassword }) {
                     <label htmlFor="password" className="form-label mb-0 flex-shrink-0" style={{width: 80}}>Contraseña:</label>
                     <input
                         type="password"
-                        id="password"
+                        id="pass"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
