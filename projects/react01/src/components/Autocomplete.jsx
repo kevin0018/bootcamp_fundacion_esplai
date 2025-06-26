@@ -24,26 +24,62 @@ const Autocomplete = () => {
   }, [query, cities]);
 
   return (
-    <div className="flex flex-col gap-2 max-w-xs mx-auto p-4">
-      <label className="flex flex-col gap-1">
+    <div className="d-flex flex-column gap-2 mx-auto p-4" style={{maxWidth: '350px'}}>
+      <label className="d-flex flex-column gap-1">
         <span>Municipio</span>
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
-          className="border rounded px-2 py-1"
+          className="form-control w-100"
           placeholder="Introduce el nombre del municipio"
+          style={{minWidth: '180px'}}
         />
       </label>
-      {filtered.length > 0 && (
-        <ul className="bg-white border rounded mt-2 max-h-48 overflow-y-auto">
-          {filtered.map((city, idx) => (
-            <li key={idx} className="px-3 py-1 hover:bg-gray-100 cursor-pointer">
-              {city.municipi}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul
+        className="border rounded mt-2 overflow-auto"
+        style={{
+          backgroundColor: '#111',
+          color: '#f8f9fa',
+          maxHeight: '12rem',
+          minHeight: filtered.length === 0 ? '3.5rem' : undefined,
+          transition: 'min-height 0.2s',
+        }}
+      >
+        {filtered.map((city, idx) => (
+          <li
+            key={idx}
+            className="px-3 py-1"
+            style={{background: 'transparent', cursor: 'pointer'}}
+            onMouseOver={e => e.currentTarget.style.background = '#222'}
+            onMouseOut={e => e.currentTarget.style.background = 'transparent'}
+          >
+            {city.municipi}
+          </li>
+        ))}
+      </ul>
+      <style>{`
+        @media (max-width: 576px) {
+          input::placeholder {
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 100%;
+            display: block;
+          }
+        }
+        @media (min-width: 577px) and (max-width: 768px) {
+          input::placeholder {
+            font-size: 16px;
+          }
+        }
+        @media (min-width: 769px) {
+          input::placeholder {
+            font-size: 20px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
