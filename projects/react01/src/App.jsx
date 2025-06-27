@@ -8,6 +8,7 @@ import R04 from './pages/R04.jsx';
 import R06 from './pages/R06.jsx';
 import R09 from './pages/R09.jsx';
 import R10 from './pages/R10.jsx';
+import R11 from './pages/R11.jsx';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Link to="/r06" className="btn btn-primary">Ir a R06</Link>
                     <Link to="/r09" className="btn btn-primary">Ir a R09</Link>
                     <Link to="/r10" className="btn btn-primary">Ir a R10</Link>
+                    <Link to="/r11" className="btn btn-primary">Ir a R11</Link>
                 </nav>
 
                 {/* Route Definitions */}
@@ -40,6 +42,7 @@ function App() {
                     <Route path="/r06" element={<R06 />} />
                     <Route path="/r09" element={<R09 />} />
                     <Route path="/r10" element={<R10 />} />
+                    <Route path="/r11" element={<R11 />} />
                 </Routes>
             </div>
         </Router>

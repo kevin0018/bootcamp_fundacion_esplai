@@ -36,7 +36,7 @@ function Date() {
     let dateObj = null;
     let isValidDate = false;
     if (selectedDate) {
-        dateObj = new window.Date(selectedDate + 'T00:00:00'); // Ensures correct parsing in all browsers
+        dateObj = new window.Date(selectedDate + 'T00:00:00');
         isValidDate = !isNaN(dateObj.getTime());
     }
 

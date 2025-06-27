@@ -1,14 +1,11 @@
 import { useState } from "react";
 
-/**
- * Date2 component: allows user to select two dates and shows business days and midpoint date.
- */
 const Date2 = () => {
   // State for start and end dates
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  // Helper to count business days between two dates (inclusive)
+  // Helper to count business days between two dates
   const getBusinessDays = (start, end) => {
     let count = 0;
     let current = new Date(start);
@@ -16,7 +13,7 @@ const Date2 = () => {
     if (current > last) return 0;
     while (current <= last) {
       const day = current.getDay();
-      if (day !== 0 && day !== 6) count++; // Exclude Sunday (0) and Saturday (6)
+      if (day !== 0 && day !== 6) count++;
       current.setDate(current.getDate() + 1);
     }
     return count;
