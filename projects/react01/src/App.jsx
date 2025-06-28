@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-
+import Sidebar from './components/common/Sidebar.jsx';
 import R01 from './pages/R01.jsx';
 import R02 from './pages/R02.jsx';
 import R03 from './pages/R03.jsx';
@@ -13,37 +13,29 @@ import R11 from './pages/R11.jsx';
 function App() {
     return (
         <Router>
-            <div className="min-vh-100 d-flex flex-column align-items-center justify-content-center">
-                {/* Navigation and Header */}
-                <header className="text-center mb-4">
-                    <h1 className="fw-bold text-light">Ejercicios</h1>
-                </header>
-
-                {/* Buttons */}
-                <nav className="d-flex gap-3">
-                    <Link to="/" className="btn btn-primary">Ir a Home</Link>
-                    <Link to="/r01" className="btn btn-primary">Ir a R01</Link>
-                    <Link to="/r02" className="btn btn-primary">Ir a R02</Link>
-                    <Link to="/r03" className="btn btn-primary">Ir a R03</Link>
-                    <Link to="/r04" className="btn btn-primary">Ir a R04</Link>
-                    <Link to="/r06" className="btn btn-primary">Ir a R06</Link>
-                    <Link to="/r09" className="btn btn-primary">Ir a R09</Link>
-                    <Link to="/r10" className="btn btn-primary">Ir a R10</Link>
-                    <Link to="/r11" className="btn btn-primary">Ir a R11</Link>
-                </nav>
-
-                {/* Route Definitions */}
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/r01" element={<R01 />} />
-                    <Route path="/r02" element={<R02 />} />
-                    <Route path="/r03" element={<R03 />} />
-                    <Route path="/r04" element={<R04 />} />
-                    <Route path="/r06" element={<R06 />} />
-                    <Route path="/r09" element={<R09 />} />
-                    <Route path="/r10" element={<R10 />} />
-                    <Route path="/r11" element={<R11 />} />
-                </Routes>
+            <div className="min-vh-100 d-flex flex-row bg-dark" style={{ minHeight: '100vh' }}>
+                <Sidebar />
+                <main
+                    className="flex-grow-1 d-flex flex-column bg-dark"
+                    style={{ minHeight: '100vh', width: 900, maxWidth: 900, padding: 0 }}
+                >
+                    <header className="mb-4 w-100" style={{ padding: '32px 0 16px 0' }}>
+                        <h1 className="fw-bold text-light" style={{ textAlign: 'left', margin: 0 }}>Ejercicios</h1>
+                    </header>
+                    <div className="w-100" style={{ padding: 0 }}>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/r01" element={<R01 />} />
+                            <Route path="/r02" element={<R02 />} />
+                            <Route path="/r03" element={<R03 />} />
+                            <Route path="/r04" element={<R04 />} />
+                            <Route path="/r06" element={<R06 />} />
+                            <Route path="/r09" element={<R09 />} />
+                            <Route path="/r10" element={<R10 />} />
+                            <Route path="/r11" element={<R11 />} />
+                        </Routes>
+                    </div>
+                </main>
             </div>
         </Router>
     );
@@ -51,7 +43,7 @@ function App() {
 
 // Home Page Component
 function Home() {
-    return <h2>Selecciona un ejercicio para empezar</h2>;
+    return <h2 className="text-light" style={{ textAlign: 'left' }}>Selecciona un ejercicio para empezar</h2>;
 }
 
 export default App;
