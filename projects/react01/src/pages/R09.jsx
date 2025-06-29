@@ -1,4 +1,4 @@
-import Password from "../components/Password";
+import Password from "../components/r09/Password.jsx";
 function R09() {
   return (
     <div>

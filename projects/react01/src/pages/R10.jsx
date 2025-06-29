@@ -1,10 +1,10 @@
-import Login from '../components/Login';
-import SignUp from '../components/SignUp';
-import Date from '../components/Date';
-import Date2 from '../components/Date2';
-import ColorSpinner from '../components/ColorSpinner';
-import ColorSpinnerGradient from '../components/ColorSpinnerGradient';
-import Autocomplete from '../components/Autocomplete';
+import Login from '../components/r10/Login.jsx';
+import SignUp from '../components/r10/SignUp.jsx';
+import Date from '../components/r10/Date.jsx';
+import Date2 from '../components/r10/Date2.jsx';
+import ColorSpinner from '../components/r10/ColorSpinner.jsx';
+import ColorSpinnerGradient from '../components/r10/ColorSpinnerGradient.jsx';
+import Autocomplete from '../components/r10/Autocomplete.jsx';
 
 function R10 () {
   return (

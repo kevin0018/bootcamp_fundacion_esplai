@@ -1,4 +1,4 @@
-import PaginationComponent from "../components/PaginationComponent.jsx";
+import PaginationComponent from "../components/r02/PaginationComponent.jsx";
 
 function R02() {
 

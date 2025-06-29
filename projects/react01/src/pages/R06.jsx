@@ -1,4 +1,4 @@
-import Calculator from "../components/Calculator";
+import Calculator from "../components/r06/Calculator.jsx";
 function R06() {
     return (
         <div>

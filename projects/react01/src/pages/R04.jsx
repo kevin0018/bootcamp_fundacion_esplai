@@ -1,4 +1,3 @@
-// IMPORTS
 import {useState} from "react";
 import data from "../data/ciutats.json";
 import {Table, Button, Form} from "react-bootstrap";

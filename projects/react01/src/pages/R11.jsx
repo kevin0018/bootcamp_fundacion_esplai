@@ -1,4 +1,4 @@
-import BicingBCN from "../components/BicingBCN";
+import BicingBCN from "../components/r11/BicingBCN.jsx";
 function R11() {
   return (
     <div>

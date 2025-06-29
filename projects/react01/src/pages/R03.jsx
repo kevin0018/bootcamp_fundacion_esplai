@@ -1,6 +1,6 @@
-import Thumbs from "../components/Thumbs";
-import Tricolor from "../components/Tricolor.jsx";
-import Photos from "../components/Photos.jsx";
+import Thumbs from "../components/r03/Thumbs.jsx";
+import Tricolor from "../components/r03/Tricolor.jsx";
+import Photos from "../components/r03/Photos.jsx";
 function R03 () {
 	return (
 		<>
