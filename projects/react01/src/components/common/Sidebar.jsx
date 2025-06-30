@@ -64,15 +64,16 @@ function Sidebar() {
       )}
 
       <aside 
-        className={`bg-dark text-light p-3 h-100 d-flex flex-column position-fixed position-lg-static ${
+        className={`text-light p-3 h-100 d-flex flex-column position-fixed position-lg-static ${
           isOpen ? 'd-block' : 'd-none d-lg-flex'
         }`}
         style={{ 
-          minWidth: 180,
+          minWidth: 250,
           width: 250,
           zIndex: 1050,
           top: 0,
           left: 0,
+          backgroundColor: '#242424',
           transition: 'transform 0.3s ease-in-out'
         }}
       >
