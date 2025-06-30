@@ -1,7 +1,6 @@
 export function Products({ products, onAddToCart }) {
   const addToCartHandler = (product) => {
     if (onAddToCart) onAddToCart(product);
-    console.log(`Afegit al carro: ${product.nom}`);
   };
   return (
     <div className="products">

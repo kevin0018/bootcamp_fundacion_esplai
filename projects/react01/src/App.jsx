@@ -9,6 +9,7 @@ import R06 from './pages/R06.jsx';
 import R09 from './pages/R09.jsx';
 import R10 from './pages/R10.jsx';
 import R11 from './pages/R11.jsx';
+import { R12 } from './pages/R12.jsx';
 
 function App() {
     return (
@@ -17,12 +18,26 @@ function App() {
                 <Sidebar />
                 <main
                     className="flex-grow-1 d-flex flex-column bg-dark"
-                    style={{ minHeight: '100vh', width: 900, maxWidth: 900, padding: 0 }}
+                    style={{ 
+                        minHeight: '100vh', 
+                        width: '100%',
+                        maxWidth: '100%',
+                        padding: 0,
+                        marginLeft: 0
+                    }}
                 >
-                    <header className="mb-4 w-100" style={{ padding: '32px 0 16px 0' }}>
-                        <h1 className="fw-bold text-light" style={{ textAlign: 'left', margin: 0 }}>Ejercicios</h1>
+                    <header className="mb-4 w-100" style={{ 
+                        padding: '32px 20px 16px 70px',
+                        paddingLeft: '70px'
+                    }}>
+                        <h1 className="fw-bold text-light d-none d-lg-block" style={{ textAlign: 'left', margin: 0 }}>
+                            Ejercicios
+                        </h1>
                     </header>
-                    <div className="w-100" style={{ padding: 0 }}>
+                    <div className="w-100" style={{ 
+                        padding: '0 20px',
+                        paddingLeft: '20px'
+                    }}>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/r01" element={<R01 />} />
@@ -33,6 +48,7 @@ function App() {
                             <Route path="/r09" element={<R09 />} />
                             <Route path="/r10" element={<R10 />} />
                             <Route path="/r11" element={<R11 />} />
+                            <Route path="/r12" element={<R12 />} />
                         </Routes>
                     </div>
                 </main>
@@ -43,7 +59,18 @@ function App() {
 
 // Home Page Component
 function Home() {
-    return <h2 className="text-light" style={{ textAlign: 'left' }}>Selecciona un ejercicio para empezar</h2>;
+    return (
+        <div className="text-light">
+            <h2 className="d-none d-lg-block" style={{ textAlign: 'left' }}>
+                Selecciona un ejercicio para empezar
+            </h2>
+            <div className="d-lg-none text-center">
+                <p className="mb-3" style={{ fontSize: '1.1rem' }}>
+                    Usa el menú ☰ para navegar entre ejercicios
+                </p>
+            </div>
+        </div>
+    );
 }
 
 export default App;

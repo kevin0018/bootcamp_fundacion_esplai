@@ -4,6 +4,7 @@ import Photos from "../components/r03/Photos.jsx";
 function R03 () {
 	return (
 		<>
+			<h2 className='text-light text-center mb-4 mt-3'>Ejercicio 03</h2>
 			<h2>&lt;Thumbs /&gt;</h2>
 			<p>
 				Muestra icono1 "thumbs-up" de fontawesome que cambia "thumbs-down" alternativamente al clicar encima.

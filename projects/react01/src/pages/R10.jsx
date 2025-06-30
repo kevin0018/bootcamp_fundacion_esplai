@@ -9,6 +9,7 @@ import Autocomplete from '../components/r10/Autocomplete.jsx';
 function R10 () {
   return (
     <div>
+      <h2 className='text-light text-center mb-4 mt-3'>Ejercicio 10</h2>
       <Login correctName="Kevin" correctPassword="123" />
       <SignUp />
       <Date />

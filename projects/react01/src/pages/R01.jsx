@@ -20,6 +20,7 @@ function R01() {
 
 	return (
 		<>
+			<h2 className='text-light text-center mb-4 mt-3'>Ejercicio 01</h2>
 			<HelloWorld />
 			<Separator />
 			<Square />
