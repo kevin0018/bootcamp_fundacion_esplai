@@ -9,7 +9,17 @@ import R06 from './pages/R06.jsx';
 import R09 from './pages/R09.jsx';
 import R10 from './pages/R10.jsx';
 import R11 from './pages/R11.jsx';
-import { R12 } from './pages/R12.jsx';
+import R12 from './pages/R12.jsx';
+
+import Vallvidrera from './pages/parks/Vallvidrera.jsx';
+import Collserola from './pages/parks/Collserola.jsx';
+import Montserrat from './pages/parks/Montserrat.jsx';
+import Garraf from './pages/parks/Garraf.jsx';
+import Montseny from './pages/parks/Montseny.jsx';
+import Llobregat from './pages/parks/Llobregat.jsx';
+import Llobregat2 from './pages/parks/Llobregat2.jsx';
+import Pedraforca from './pages/parks/Pedraforca.jsx';
+import Mola from './pages/parks/Mola.jsx';
 
 function App() {
     return (
@@ -65,7 +75,17 @@ function App() {
                                 <Route path="/r09" element={<R09 />} />
                                 <Route path="/r10" element={<R10 />} />
                                 <Route path="/r11" element={<R11 />} />
-                                <Route path="/r12" element={<R12 />} />
+                                <Route path="/r12" element={<R12 />}>
+                                    <Route path="parks/vallvidrera" element={<Vallvidrera />} />
+                                    <Route path="parks/collserola" element={<Collserola />} />
+                                    <Route path="parks/montserrat" element={<Montserrat />} />
+                                    <Route path="parks/garraf" element={<Garraf />} />
+                                    <Route path="parks/montseny" element={<Montseny />} />
+                                    <Route path="parks/llobregat" element={<Llobregat />} />
+                                    <Route path="parks/llobregat2" element={<Llobregat2 />} />
+                                    <Route path="parks/pedraforca" element={<Pedraforca />} />
+                                    <Route path="parks/mola" element={<Mola />} />
+                                </Route>
                             </Routes>
                         </div>
                     </div>
