@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import TranslatorContext from "../../i18n/TranslatorContext";
+
 export default function Vallvidrera() {
+    const { translate } = useContext(TranslatorContext);
     return (
         <div>
-            <img src="/images/parks/vallvidrera.jpg" alt="Vallvidrera" style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
-            <h1>Pantano de Vallvidrera</h1>
-            <p>Uno de los parques naturales de Barcelona ciudad y que merece la pena conocer es el Pantano de Vallvidrera, un embalse hidráulico que está situado en el barrio que le da nombre (Vallvidrera) y donde podrás encontrar un espacio natural perfecto para ir con tu familia o con amigos.</p>
-            <p>Actualmente, este rincón es un oasis en la ciudad condal, ya que está rodeado de árboles y naturaleza que invita a la desconexión. El nivel del agua se mantiene en cotas altas gracias a la existencia de fuentes permanentes. Es un sitio perfecto para ir con perros en Barcelona y disfrutar de un picnic, así como una sesión refrescante para el verano.</p>
+            <img src="/images/parks/vallvidrera.jpg" alt={translate('vallvidreraTitle')} style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
+            <h1>{translate('vallvidreraTitle')}</h1>
+            <p>{translate('vallvidreraP1')}</p>
+            <p>{translate('vallvidreraP2')}</p>
         </div>
     );
 }

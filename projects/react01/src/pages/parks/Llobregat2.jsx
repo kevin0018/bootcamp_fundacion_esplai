@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import TranslatorContext from "../../i18n/TranslatorContext";
+
 export default function Llobregat2() {
+    const { translate } = useContext(TranslatorContext);
     return (
         <div>
-            <img src="/images/parks/llobregat2.jpg" alt="Delta del Llobregat" style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
-            <h2 className='text-light text-center mb-4 mt-3'>El Delta del Llobregat</h2>
-            <p>Cerca del sur de Barcelona, entre el macizo de Montjuïc y del Garraf, nos encontramos con otro de los espacios naturales más sorprendentes y, por cierto, más desconocidos de Barcelona. El Delta del Llobregat es la desembocadura del río Llobregat, un proceso natural que se lleva a cabo en una gran llanura repleta de zonas húmedas. Es una zona con un gran valor ecológico pero también paisajístico.</p>
-            <p>Este delta cuenta con 1000 hectáreas y se pueden recorrer fácilmente en bicicleta o disfrutando de una buena caminata. Para mejorar el conocimiento de esta importante zona natural, año tras año se realizan una gran cantidad de actividades como jornadas de exploración, itinerarios de fotografía, actividades familiares, etcétera.</p>
+            <img src="/images/parks/llobregat2.jpg" alt={translate('llobregat2Title')} style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
+            <h2 className='text-light text-center mb-4 mt-3'>{translate('llobregat2Title')}</h2>
+            <p>{translate('llobregat2P1')}</p>
+            <p>{translate('llobregat2P2')}</p>
         </div>
     );
 }

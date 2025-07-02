@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import TranslatorContext from "../../i18n/TranslatorContext";
+
 export default function Montseny() {
+    const { translate } = useContext(TranslatorContext);
     return (
         <div>
-            <img src="/images/parks/montseny.jpg" alt="Parc Natural del Montseny" style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
-            <h2 className='text-light text-center mb-4 mt-3'>Parc Natural del Montseny</h2>
-            <p>El Parc Natural del Montseny es un espacio natural protegido situado en la cordillera Prelitoral Catalana, a unos 50 km al norte de Barcelona. Es conocido por su biodiversidad, paisajes montañosos y rutas de senderismo.</p>
-            <p>El parque alberga una gran variedad de flora y fauna, incluyendo especies endémicas y amenazadas. Es un destino popular para los amantes de la naturaleza, excursionistas y ciclistas.</p>
+            <img src="/images/parks/montseny.jpg" alt={translate('montsenyTitle')} style={{ width: 400, height: 400, objectFit: 'cover', borderRadius: '1rem', display: 'block', margin: '0 auto' }} />
+            <h2 className='text-light text-center mb-4 mt-3'>{translate('montsenyTitle')}</h2>
+            <p>{translate('montsenyP1')}</p>
+            <p>{translate('montsenyP2')}</p>
         </div>
     );
 }
