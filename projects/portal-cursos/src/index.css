@@ -6,6 +6,12 @@
   --color-accent: #903a28;
 }
 
+.theme-light {
+  --color-primary: #abae46;
+  --color-secondary: #303517;
+  --color-accent: #6c421c;
+}
+
 
 *,
 *::before,

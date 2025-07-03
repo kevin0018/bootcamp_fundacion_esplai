@@ -12,6 +12,7 @@ import Admin from './pages/Admin.jsx';
 import Login from './pages/Login.jsx';
 import NotFound from './pages/NotFound.jsx';
 import App from './App.jsx';
+import LanguageProvider from './i18n/LanguageProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </StrictMode>,
 );
