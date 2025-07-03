@@ -8,13 +8,20 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState(false);
 
+  const [error, setError] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/admin?auth=true');
+    if (username === 'admin' && password === 'admin') {
+      setError('');
+      navigate('/admin?auth=true');
+    } else {
+      setError('Usuario o contraseña incorrectos');
+    }
   };
 
   return (
-    <div className="flex items-center justify-center bg-primary py-8">
+    <div className="flex items-center justify-center bg-primary py-8 min-h-[80vh]">
       <form
         className="bg-secondary rounded-lg shadow-lg p-8 w-full max-w-md flex flex-col gap-4"
         onSubmit={handleSubmit}
@@ -23,6 +30,9 @@ export default function Login() {
           Login
         </h2>
         <div className="border-b border-accent/30 mb-4" />
+        {error && (
+          <div className="bg-accent/90 text-primary font-bold rounded p-2 text-center mb-2 animate-pulse">{error}</div>
+        )}
         <label className="text-primary font-medium">Username</label>
         <input
           className="border border-accent/30 rounded px-3 py-2 focus:outline-accent text-primary"

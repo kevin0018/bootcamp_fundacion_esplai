@@ -8,20 +8,29 @@ export default function CourseDetail() {
 
   if (!course) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-secondary">
-        <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center gap-4">
-          <span className="material-icons text-accent text-5xl">error_outline</span>
-          <h1 className="text-2xl font-bold text-secondary">Curso no encontrado</h1>
-          <button className="mt-4 px-4 py-2 bg-accent text-white rounded" onClick={() => navigate(-1)}>
+      <div className="flex items-center justify-center bg-primary">
+        <div className="bg-secondary rounded-lg shadow-lg p-8 flex flex-col items-center gap-4 error-container">
+          <h1 className="text-2xl font-bold text-accent">¡Curso no encontrado!</h1>
+          <button className="mt-4 px-4 py-2 bg-accent text-secondary font-semibold rounded hover:bg-accent/80 transition-all" onClick={() => navigate(-1)}>
             Volver
           </button>
         </div>
+        <style jsx="true">
+          {`
+            .error-container {
+              padding: 10px;
+            }
+            button {
+              padding: 0 10px;
+            }
+          `}
+        </style>
       </div>
     );
   }
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center py-8 px-2 sm:px-4">
+    <div className="flex flex-col items-center justify-center py-8 px-2 sm:px-4">
       <div className="w-full max-w-2xl bg-primary rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-secondary">
         <button className="mb-6 px-6 py-2 bg-accent text-secondary font-bold rounded-xl shadow hover:bg-accent/80 transition-all self-start" onClick={() => navigate(-1)}>
           Volver
