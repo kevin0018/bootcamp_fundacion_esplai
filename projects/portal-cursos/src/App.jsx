@@ -37,7 +37,7 @@ function App() {
           Login
         </NavLink>
       </nav>
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col flex-nowrap justify-center">
         <Outlet />
       </main>
       <style jsx="true">

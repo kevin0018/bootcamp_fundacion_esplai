@@ -21,18 +21,26 @@ export default function CourseDetail() {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <button className="mb-4 px-4 py-2 bg-accent text-white rounded" onClick={() => navigate(-1)}>
-        Volver
-      </button>
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-3xl font-bold text-secondary mb-2">{course.titulo}</h2>
-        <p className="text-primary mb-2">Categoría: {course.categoria}</p>
-        <p className="text-primary mb-2">Nivel: {course.nivel}</p>
-        <p className="text-primary mb-2">Duración: {course.duracion}h</p>
-        <p className="text-primary mb-2">Valor: {course.valor}</p>
-        <p className="text-secondary mt-4">{course.descripcion}</p>
+    <div className="min-h-[80vh] flex flex-col items-center justify-center py-8 px-2 sm:px-4">
+      <div className="w-full max-w-2xl bg-primary rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-secondary">
+        <button className="mb-6 px-6 py-2 bg-accent text-secondary font-bold rounded-xl shadow hover:bg-accent/80 transition-all self-start" onClick={() => navigate(-1)}>
+          Volver
+        </button>
+        <div className="w-full bg-primary rounded-xl shadow p-8 flex flex-col items-start">
+          <h2 className="text-3xl font-extrabold text-secondary mb-4 drop-shadow">{course.titulo}</h2>
+          <p className="text-secondary mb-2 font-semibold">Categoría: <span className="text-accent font-semibold">{course.categoria}</span></p>
+          <p className="text-secondary mb-2 font-semibold">Nivel: <span className="text-accent font-semibold">{course.nivel}</span></p>
+          <p className="text-secondary mb-2 font-semibold">Duración: <span className="text-accent font-semibold">{course.duracion}h</span></p>
+          <p className="text-secondary mb-2 font-semibold">Valor: <span className="text-accent font-semibold">{course.valor}</span></p>
+          <p className="text-secondary mt-6 font-semibold">{course.descripcion}</p>
+        </div>
       </div>
+      <style jsx="true">
+        {`
+          button {
+            padding: 0 10px;
+        `}
+      </style>
     </div>
   );
 }
