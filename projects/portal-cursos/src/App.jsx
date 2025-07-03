@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import './App.css';
+import { Outlet, NavLink } from 'react-router-dom';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-theme-primary flex flex-col">
+      <nav className="w-full flex justify-center gap-12 bg-secondary text-primary text-2xl font-extrabold shadow-lg" style={{padding: '1.25rem 2rem'}}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? 'underline' : undefined
+          }
+        >
+          Inicio
+        </NavLink>
+        <NavLink
+          to="/courses"
+          className={({ isActive }) =>
+            isActive ? 'underline' : undefined
+          }
+        >
+          Cursos
+        </NavLink>
+        <NavLink
+          to="/admin"
+          className={({ isActive }) =>
+            isActive ? 'underline' : undefined
+          }
+        >
+          Admin
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? 'underline' : undefined
+          }
+        >
+          Login
+        </NavLink>
+      </nav>
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <style jsx="true">
+        {`
+          main {
+            padding-top: 10px;
+          }
+        `}
+      </style>
+    </div>
+  );
 }
-
 export default App
