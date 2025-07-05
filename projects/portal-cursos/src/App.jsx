@@ -1,30 +1,3 @@
-/*
-/configuracion
-Nueva ruta para que el usuario pueda ajustar el tema y el idioma
-Página con switches de toggleTheme y setLanguage()
-/perfil — Página de perfil personal (simulado)
-El usuario ve su nombre, email y preferencias (idioma, tema).
-Puede editar su perfil y guardarlo.
-Simula carga desde localStorage o un objeto de usuario en contexto.
-Opción de “Restablecer valores por defecto”.
-/mis-cursos — Cursos favoritos o marcados
-Desde cada curso puedes marcar como favorito.
-En /mis-cursos se listan todos los cursos favoritos.
-Se pueden eliminar cursos favoritos de /mis-cursos.
-Mostrar número de favoritos en la navbar con un ícono.
-/progreso — Seguimiento del progreso de aprendizaje
-Cada curso puede marcarse como “Completado” desde su página de detalle (/cursos/:id).
-En /progreso ves:
-Lista de cursos completados
-Porcentaje total de progreso
-Progreso por categoría o nivel (con barras)
-/historial — Registro de cursos visitados recientemente
-Cada vez que visitas /cursos/:id, se guarda el curso en un array de historial.
-En /historial puedes ver los últimos cursos visualizados (limitado a los últimos 5–10).
-Permite volver rápidamente a un curso con un botón “Ver de nuevo”.
-Añadir botón para borrar historial.
-
-*/
 import './App.css';
 import { Outlet, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -49,7 +22,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-primary flex flex-col">
-      <nav className="w-full flex justify-between items-center bg-secondary text-primary text-2xl font-extrabold shadow-lg" style={{padding: '1.25rem 2rem'}}>
+      <nav className="w-full flex justify-between items-center bg-secondary text-primary text-2xl font-extrabold shadow-lg" style={{ padding: '1.25rem 2rem' }}>
         <div className="flex justify-center gap-12 flex-1">
           <NavLink
             to="/"
@@ -107,8 +80,16 @@ function App() {
           >
             {translate('progress')}
           </NavLink>
+          <NavLink
+            to="/configuracion"
+            className={({ isActive }) =>
+              isActive ? 'underline' : undefined
+            }
+          >
+            {translate('configuration')}
+          </NavLink>
         </div>
-        
+
         {/* Language and Theme Controls */}
         <div className="flex gap-4 items-center">
           <button

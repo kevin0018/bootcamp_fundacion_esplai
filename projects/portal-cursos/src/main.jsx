@@ -13,6 +13,7 @@ import Login from './pages/Login.jsx';
 import NotFound from './pages/NotFound.jsx';
 import App from './App.jsx';
 import LanguageProvider from './i18n/LanguageProvider.jsx';
+import Configuration from './pages/Configuration.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       { path: 'courses/:id', element: <CourseDetail /> },
       { path: 'admin', element: <Admin /> },
       { path: 'login', element: <Login /> },
+      { path: 'configuracion', element: <Configuration /> },
       { path: '*', element: <NotFound /> },
     ],
   },
