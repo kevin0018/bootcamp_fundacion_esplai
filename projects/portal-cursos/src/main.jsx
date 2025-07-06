@@ -15,6 +15,7 @@ import App from './App.jsx';
 import LanguageProvider from './i18n/LanguageProvider.jsx';
 import Configuration from './pages/Configuration.jsx';
 import Profile from './pages/Profile.jsx';
+import MyCourses from './pages/MyCourses.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: 'login', element: <Login /> },
       { path: 'configuracion', element: <Configuration /> },
       { path: 'profile', element: <Profile /> },
+      { path: 'mis-cursos', element: <MyCourses /> },
       { path: '*', element: <NotFound /> },
     ],
   },

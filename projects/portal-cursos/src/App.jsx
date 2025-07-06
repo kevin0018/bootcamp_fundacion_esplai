@@ -65,12 +65,12 @@ function App() {
             {translate('profile')}
           </NavLink>
           <NavLink
-            to="/favorites"
+            to="/mis-cursos"
             className={({ isActive }) =>
               isActive ? 'underline' : undefined
             }
           >
-            {translate('favorites')}
+            {translate('myCourses')}
           </NavLink>
           <NavLink
             to="/progress"

@@ -1,7 +1,13 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import coursesData from '../data/courses.json';
 import { getOptimalCourseSelection } from '../utils/courseOptimizer.js';
+import {
+  getFavoriteCourses,
+  addFavoriteCourse,
+  removeFavoriteCourse,
+} from '../utils/favorites.js';
+import { useTranslation } from '../utils/hooks.js';
 
 export default function Courses() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -10,6 +16,10 @@ export default function Courses() {
   const [maxHours, setMaxHours] = useState(20);
   const [levelDropdownOpen, setLevelDropdownOpen] = useState(false);
   const levelDropdownRef = useRef(null);
+  const { translate } = useTranslation();
+
+  // State for favorite course IDs
+  const [favoriteIds, setFavoriteIds] = useState(getFavoriteCourses());
 
   // Support filtering by category and level from query params
   const level = searchParams.get('nivel') || '';
@@ -22,10 +32,28 @@ export default function Courses() {
   const totalHours = optimal.reduce((sum, c) => sum + c.duracion, 0);
   const totalValue = optimal.reduce((sum, c) => sum + c.valor, 0);
 
+  // Update favorites from localStorage on mount and when storage changes
+  useEffect(() => {
+    const handleStorage = () => setFavoriteIds(getFavoriteCourses());
+    window.addEventListener('storage', handleStorage);
+    setFavoriteIds(getFavoriteCourses());
+    return () => window.removeEventListener('storage', handleStorage);
+  }, []);
+
+  // Toggle favorite status for a course
+  const handleToggleFavorite = (courseId) => {
+    if (favoriteIds.includes(courseId)) {
+      removeFavoriteCourse(courseId);
+    } else {
+      addFavoriteCourse(courseId);
+    }
+    setFavoriteIds(getFavoriteCourses());
+  };
+
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center py-8 px-2 sm:px-4">
       <div className="w-full max-w-2xl bg-primary rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-secondary">
-        <h2 className="text-3xl font-extrabold mb-8 text-secondary text-center drop-shadow">Lista de cursos</h2>
+        <h2 className="text-3xl font-extrabold mb-8 text-secondary text-center drop-shadow">{translate('courseList') || 'Lista de cursos'}</h2>
         <div className="mb-8 flex flex-wrap gap-4 items-center justify-center w-full relative">
           <button
             className={`custom-btn-courses rounded-xl bg-accent shadow transition-all duration-150 hover:bg-accent/80 flex font-bold ${!category && !level ? 'text-primary underline underline-offset-4' : 'text-secondary'}`}
@@ -91,10 +119,27 @@ export default function Courses() {
             <li
               key={course.id}
               className="p-7 border-b-2 border-secondary rounded-lg bg-primary/10 cursor-pointer transition-all duration-200 flex items-center justify-between shadow-sm hover:bg-accent/90 hover:scale-[1.025] hover:shadow-md group"
-              onClick={() => navigate(`/courses/${course.id}`)}
+              onClick={e => {
+                // Prevent navigation if clicking the favorite button
+                if (e.target.closest('.favorite-btn')) return;
+                navigate(`/courses/${course.id}`);
+              }}
             >
               <span className="font-semibold text-lg text-secondary group-hover:text-secondary transition-colors duration-200">{course.titulo}</span>
               <span className="text-base text-accent pl-6 group-hover:text-secondary transition-colors duration-200">{course.duracion}h, valor: {course.valor}</span>
+              <button
+                className="favorite-btn ml-4 text-2xl focus:outline-none"
+                aria-label={favoriteIds.includes(course.id) ? translate('remove') || 'Eliminar de favoritos' : translate('addFavorite') || 'Añadir a favoritos'}
+                onClick={e => {
+                  e.stopPropagation();
+                  handleToggleFavorite(course.id);
+                }}
+              >
+                {favoriteIds.includes(course.id)
+                  ? <span className="text-red-500">♥</span>
+                  : <span className="text-secondary">♡</span>
+                }
+              </button>
             </li>
           ))}
         </ul>

@@ -20,6 +20,10 @@ export const translations = {
     save: "Guardar",
     cancel: "Cancelar",
     reset: "Restablecer valores por defecto",
+    myCourses: "Mis cursos",
+    remove: "Eliminar",
+    clearAll: "Eliminar todos",
+    noFavorites: "No tienes cursos marcados.",
   },
   en: {
     home: "Home",
@@ -42,5 +46,9 @@ export const translations = {
     save: "Save",
     cancel: "Cancel",
     reset: "Reset to default values",
+    myCourses: "My Courses",
+    remove: "Remove",
+    clearAll: "Remove all",
+    noFavorites: "You have no favorite courses.",
   },
 };

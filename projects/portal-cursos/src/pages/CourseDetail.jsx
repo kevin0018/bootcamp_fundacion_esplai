@@ -1,10 +1,25 @@
 import coursesData from '../data/courses.json';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {
+  getFavoriteCourses,
+  addFavoriteCourse,
+  removeFavoriteCourse
+} from '../utils/favorites.js';
+import { useTranslation } from '../utils/hooks.js';
 
 export default function CourseDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { translate } = useTranslation();
   const course = coursesData.find(c => String(c.id) === String(id));
+
+  // State for favorite
+  const [isFavorite, setIsFavorite] = useState(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));
+
+  useEffect(() => {
+    setIsFavorite(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));
+  }, [id]);
 
   if (!course) {
     return (
@@ -29,6 +44,16 @@ export default function CourseDetail() {
     );
   }
 
+  // Toggle favorite status
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
+      removeFavoriteCourse(course.id);
+    } else {
+      addFavoriteCourse(course.id);
+    }
+    setIsFavorite(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));
+  };
+
   return (
     <div className="flex flex-col items-center justify-center py-8 px-2 sm:px-4">
       <div className="w-full max-w-2xl bg-primary rounded-xl shadow-lg p-8 flex flex-col items-center border-4 border-secondary">
@@ -36,7 +61,19 @@ export default function CourseDetail() {
           Volver
         </button>
         <div className="w-full bg-primary rounded-xl shadow p-8 flex flex-col items-start">
-          <h2 className="text-3xl font-extrabold text-secondary mb-4 drop-shadow">{course.titulo}</h2>
+          <div className="flex items-center w-full justify-between mb-2">
+            <h2 className="text-3xl font-extrabold text-secondary drop-shadow">{course.titulo}</h2>
+            <button
+              className="favorite-btn text-2xl ml-4 focus:outline-none"
+              aria-label={isFavorite ? translate('remove') || 'Eliminar de favoritos' : translate('addFavorite') || 'Añadir a favoritos'}
+              onClick={handleToggleFavorite}
+            >
+              {isFavorite
+                ? <span className="text-red-500">♥</span>
+                : <span className="text-secondary">♡</span>
+              }
+            </button>
+          </div>
           <p className="text-secondary mb-2 font-semibold">Categoría: <span className="text-accent font-semibold">{course.categoria}</span></p>
           <p className="text-secondary mb-2 font-semibold">Nivel: <span className="text-accent font-semibold">{course.nivel}</span></p>
           <p className="text-secondary mb-2 font-semibold">Duración: <span className="text-accent font-semibold">{course.duracion}h</span></p>
