@@ -3,7 +3,7 @@ import UserContext from "./contextos/UserContext.js";
 
 import CursosController from "./controllers/CursosController.js";
 
-function Cursos() {
+export default function Cursos() {
 
     const { nombre, token } = useContext(UserContext);
 
@@ -30,5 +30,3 @@ function Cursos() {
         </>
     )
 }
-
-export default Cursos;

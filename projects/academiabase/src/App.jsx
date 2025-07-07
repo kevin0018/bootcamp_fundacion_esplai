@@ -14,8 +14,6 @@ function App() {
         token: "ubzISrnVot2lgaHDfcetSMwPmx4yisxiQLZOpBn3"
     }
 
-
-
     return (
         <UserContext.Provider value={userdata}>
             <h1>Academia </h1>

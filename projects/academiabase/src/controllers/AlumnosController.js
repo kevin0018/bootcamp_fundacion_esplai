@@ -1,19 +1,18 @@
-
-
 import NocodbController from "./NocodbController";
 
-class AlumnosController extends NocodbController {
+export default class AlumnosController extends NocodbController {
 
     constructor (token){
         super("mievjgvwk2wef5x", token)
     }
 
     getAlumnosCurso(idCurso){
-        // ...
+        return this.getItems({
+            "filter": {
+                "Curso": {
+                    "Id": idCurso
+                }
+            }
+        });
     }
-
-
 }
-
-
-export default AlumnosController;

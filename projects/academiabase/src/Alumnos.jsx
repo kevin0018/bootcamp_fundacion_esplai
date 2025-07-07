@@ -3,54 +3,50 @@ import UserContext from "./contextos/UserContext.js";
 import { Link } from "react-router-dom";
 import AlumnosController from "./controllers/AlumnosController.js";
 
-function Alumnos() {
+export default function Alumnos() {
 
-    const { nombre, token } = useContext(UserContext);
+  const { name, token } = useContext(UserContext);
 
-    const alumnesController = new AlumnosController(token);
+  const alumnesController = new AlumnosController(token);
 
 
-    const [alumnos, setAlumnos] = useState([])
+  const [alumnos, setAlumnos] = useState([])
 
-    /*
-    useEffect(async () => {
+  /*
+  useEffect(async () => {
 
-        const datos = await alumnesController.getAllItems();
-        setAlumnos(datos)
+      const datos = await alumnesController.getAllItems();
+      setAlumnos(datos)
 
-    }, [])
+  }, [])
 */
 
 
-    function cargarDatos(){
-        alumnesController.getAllItems2()
-        .then(datos => setAlumnos(datos))
-        .catch(error => console.log(error))
-    }
+  function cargarDatos() {
+    alumnesController.getAllItems2()
+      .then(datos => setAlumnos(datos))
+      .catch(error => console.log(error))
+  }
 
-    useEffect(() => {
-        cargarDatos()
-    }, [])
+  useEffect(() => {
+    cargarDatos()
+  }, [])
 
-    function eliminar(id){
-        console.log("eliminando" + id)
-        alumnesController.deleteItem(id)
-        .then(x => cargarDatos())
-   
-    }
+  function eliminar(id) {
+    console.log("eliminando" + id)
+    alumnesController.deleteItem(id)
+      .then(x => cargarDatos())
+  }
 
-    return (
-
-        <>
-            <h3>ALUMNOS </h3>
-            <hr />
-            <ul>
-                {alumnos.map(alumno => <li key={alumno.Id} >{alumno.nombre}{' '}<button onClick={()=>eliminar(alumno.Id)}>X</button> </li>)}
-            </ul>
-            <hr />
-            <Link to={`/nuevo-alumno`}> Nuevo alumno</Link>{' '}
-        </>
-    )
+  return (
+    <>
+      <h3>ALUMNOS </h3>
+      <hr />
+      <ul>
+        {alumnos.map(alumno => <li key={alumno.Id} >{alumno.name}{' '}<button onClick={() => eliminar(alumno.Id)}>X</button> </li>)}
+      </ul>
+      <hr />
+      <Link to={`/nuevo-alumno`}> Nuevo alumno</Link>{' '}
+    </>
+  )
 }
-
-export default Alumnos;
