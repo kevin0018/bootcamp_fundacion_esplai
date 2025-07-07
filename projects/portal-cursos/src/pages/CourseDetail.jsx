@@ -8,12 +8,24 @@ import {
 } from '../utils/favorites.js';
 import { useTranslation } from '../utils/hooks.js';
 import { useProgress } from '../context/progressContext.js';
+import { addCourseToHistory } from '../utils/history.js';
 
 export default function CourseDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { translate } = useTranslation();
   const course = coursesData.find(c => String(c.id) === String(id));
+
+  // Add to history on mount
+  useEffect(() => {
+    if (course) {
+      addCourseToHistory({
+        id: course.id,
+        titulo: course.titulo,
+      });
+    }
+    // eslint-disable-next-line
+  }, [course?.id]);
 
   // State for favorite
   const [isFavorite, setIsFavorite] = useState(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));

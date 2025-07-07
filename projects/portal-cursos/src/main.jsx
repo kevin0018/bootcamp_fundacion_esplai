@@ -18,6 +18,7 @@ import Profile from './pages/Profile.jsx';
 import MyCourses from './pages/MyCourses.jsx';
 
 import Progress from './pages/Progress.jsx';
+import History from './pages/History.jsx';
 import { ProgressProvider } from './context/progressContext.js';
 
 const router = createBrowserRouter([
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: 'profile', element: <Profile /> },
       { path: 'mis-cursos', element: <MyCourses /> },
       { path: 'progress', element: <Progress /> },
+      { path: 'historial', element: <History /> },
       { path: '*', element: <NotFound /> },
     ],
   },

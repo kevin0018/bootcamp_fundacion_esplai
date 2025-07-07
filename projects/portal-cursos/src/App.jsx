@@ -121,6 +121,15 @@ function App() {
                   {translate('progress')}
                 </NavLink>
                 <NavLink
+                  to="/historial"
+                  className={({ isActive }) =>
+                    `px-4 py-2 text-left text-primary font-semibold hover:bg-accent/20 rounded ${isActive ? 'underline' : ''}`
+                  }
+                  onClick={() => setUserMenuOpen(false)}
+                >
+                  {translate('history') || 'Historial'}
+                </NavLink>
+                <NavLink
                   to="/configuracion"
                   className={({ isActive }) =>
                     `px-4 py-2 text-left text-primary font-semibold hover:bg-accent/20 rounded ${isActive ? 'underline' : ''}`

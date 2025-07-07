@@ -24,6 +24,11 @@ export const translations = {
     remove: "Eliminar",
     clearAll: "Eliminar todos",
     noFavorites: "No tienes cursos marcados.",
+    history: "Historial",
+    noRecentCourses: "No hay cursos recientes.",
+    viewCourses: "Ver cursos",
+    viewAgain: "Ver de nuevo",
+    clearHistory: "Borrar historial",
   },
   en: {
     home: "Home",
@@ -50,5 +55,10 @@ export const translations = {
     remove: "Remove",
     clearAll: "Remove all",
     noFavorites: "You have no favorite courses.",
+    history: "History",
+    noRecentCourses: "No recent courses.",
+    viewCourses: "View courses",
+    viewAgain: "View again",
+    clearHistory: "Clear history",
   },
 };
