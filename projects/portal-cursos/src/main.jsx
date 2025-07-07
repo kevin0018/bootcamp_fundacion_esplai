@@ -17,6 +17,9 @@ import Configuration from './pages/Configuration.jsx';
 import Profile from './pages/Profile.jsx';
 import MyCourses from './pages/MyCourses.jsx';
 
+import Progress from './pages/Progress.jsx';
+import { ProgressProvider } from './context/progressContext.js';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,6 +33,7 @@ const router = createBrowserRouter([
       { path: 'configuracion', element: <Configuration /> },
       { path: 'profile', element: <Profile /> },
       { path: 'mis-cursos', element: <MyCourses /> },
+      { path: 'progress', element: <Progress /> },
       { path: '*', element: <NotFound /> },
     ],
   },
@@ -38,7 +42,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LanguageProvider>
-      <RouterProvider router={router} />
+      <ProgressProvider>
+        <RouterProvider router={router} />
+      </ProgressProvider>
     </LanguageProvider>
   </StrictMode>,
 );

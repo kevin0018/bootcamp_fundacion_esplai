@@ -149,8 +149,8 @@ export default function Courses() {
       </div>
       <style jsx="true">{`
             .custom-btn-courses {
-            padding-left: 10px;
-            padding-right: 10px;
+              padding-left: 10px;
+              padding-right: 10px;
             }
     `}</style>
     </div>

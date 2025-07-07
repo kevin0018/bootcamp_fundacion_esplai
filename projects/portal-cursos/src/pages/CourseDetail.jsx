@@ -7,6 +7,7 @@ import {
   removeFavoriteCourse
 } from '../utils/favorites.js';
 import { useTranslation } from '../utils/hooks.js';
+import { useProgress } from '../context/progressContext.js';
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -16,6 +17,10 @@ export default function CourseDetail() {
 
   // State for favorite
   const [isFavorite, setIsFavorite] = useState(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));
+
+  // Progress context
+  const { completedCourses, markCourseCompleted, unmarkCourseCompleted } = useProgress();
+  const isCompleted = completedCourses.includes(Number(id)) || completedCourses.includes(String(id));
 
   useEffect(() => {
     setIsFavorite(getFavoriteCourses().includes(Number(id)) || getFavoriteCourses().includes(String(id)));
@@ -79,6 +84,19 @@ export default function CourseDetail() {
           <p className="text-secondary mb-2 font-semibold">Duración: <span className="text-accent font-semibold">{course.duracion}h</span></p>
           <p className="text-secondary mb-2 font-semibold">Valor: <span className="text-accent font-semibold">{course.valor}</span></p>
           <p className="text-secondary mt-6 font-semibold">{course.descripcion}</p>
+          {/* Mark as completed button */}
+          <div className="w-full flex justify-center">
+            <button
+              className={`mt-6 px-4 py-2 rounded font-bold shadow transition-all border-2
+                bg-accent text-secondary border-secondary
+                hover:bg-accent/80
+                ${isCompleted ? 'opacity-70 cursor-default' : 'cursor-pointer'}`}
+              onClick={() => isCompleted ? unmarkCourseCompleted(Number(id)) : markCourseCompleted(Number(id))}
+              disabled={isCompleted}
+            >
+              {isCompleted ? '¡Completado!' : 'Marcar como completado'}
+            </button>
+          </div>
         </div>
       </div>
       <style jsx="true">
