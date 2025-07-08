@@ -7,11 +7,11 @@ import { Routes, Route, Link } from 'react-router-dom';
 import NuevoAlumno from "./NuevoAlumno.jsx";
 
 
-function App() {
 
+function App() {
     const userdata = {
         nombre: "ricard",
-        token: "ubzISrnVot2lgaHDfcetSMwPmx4yisxiQLZOpBn3"
+        token: import.meta.env.VITE_USER_TOKEN
     }
 
     return (
