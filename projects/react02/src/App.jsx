@@ -1,8 +1,9 @@
+import Grid from "./components/grid"
 function App() {
 
   return (
     <>
-      <h1>Local storage</h1>
+      <Grid />
     </>
   )
 }
