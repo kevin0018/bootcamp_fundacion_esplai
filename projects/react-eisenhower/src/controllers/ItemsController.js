@@ -1,5 +1,6 @@
-const APIURL = 'https://app.nocodb.com/api/v2/tables/m5n8m0gg5cwg2y8/records';
-const TOKEN = '91VxdgUr8q7TQ9RPiWUNIbyMykD_jN0HVfwk5jZa';
+// Use environment variables for API URL and token (see .env file)
+const APIURL = import.meta.env.VITE_API_URL;
+const TOKEN = import.meta.env.VITE_API_TOKEN;
 
 class ItemsController {
     constructor() {
