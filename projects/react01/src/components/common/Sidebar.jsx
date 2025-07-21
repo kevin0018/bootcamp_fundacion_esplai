@@ -11,6 +11,7 @@ const exercises = [
   { path: '/r10', label: 'R10' },
   { path: '/r11', label: 'R11' },
   { path: '/r12', label: 'R12' },
+  { path: '/r13', label: 'R13' },
 ];
 
 /**

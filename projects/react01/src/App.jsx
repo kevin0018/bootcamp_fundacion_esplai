@@ -22,6 +22,7 @@ import Pedraforca from './pages/parks/Pedraforca.jsx';
 import Mola from './pages/parks/Mola.jsx';
 import TranslatorContext from './i18n/TranslatorContext';
 import dictionary from './i18n/dictionary';
+import R13 from './pages/R13.jsx';
 
 function App() {
     const [language, setLanguage] = useState(0); // 0: ES, 1: CA
@@ -57,14 +58,6 @@ function App() {
                                 padding: '20px 20px 12px 20px',
                                 backgroundColor: '#242424'
                             }}>
-                                <div className="d-lg-none text-center">
-                                    <p className="text-light mb-0 mt-2" style={{ 
-                                        fontSize: '0.9rem',
-                                        paddingTop: '50px'
-                                    }}>
-                                        Usa el menú ☰ para navegar entre ejercicios
-                                    </p>
-                                </div>
                             </header>
                             <div className="w-100" style={{ 
                                 padding: '0 20px',
@@ -92,6 +85,7 @@ function App() {
                                         <Route path="parks/pedraforca" element={<Pedraforca />} />
                                         <Route path="parks/mola" element={<Mola />} />
                                     </Route>
+                                    <Route path="/r13" element={<R13 />} />
                                 </Routes>
                             </div>
                         </div>
