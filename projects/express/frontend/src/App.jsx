@@ -14,9 +14,12 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/citarandom');
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || '';
+      const res = await fetch(`${backendUrl}/api/citarandom`);
       if (!res.ok) throw new Error('Error al obtener la cita');
       const data = await res.json();
+      data.url = backendUrl + data.url;
+      console.log('Cita obtenida:', data);
       setQuote(data);
     } catch (err) {
       setError('No se pudo cargar la cita');
@@ -43,16 +46,6 @@ function App() {
           ) : quote ? (
             <p className="text-white text-lg text-center lg:text-left">{quote.text}</p>
           ) : null}
-          <button
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            onClick={fetchQuote}
-            disabled={loading}
-          >
-            Refrescar cita
-          </button>
-        </div>
-        {/* Image section */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
           {quote && (
             <img
               src={quote.url}
@@ -61,6 +54,16 @@ function App() {
               style={{ maxHeight: 250 }}
             />
           )}
+        </div>
+        {/* Button section */}
+        <div className="w-full lg:w-1/2 flex justify-center items-center">
+          <button
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            onClick={fetchQuote}
+            disabled={loading}
+          >
+            Refrescar cita
+          </button>
         </div>
       </div>
     </div>
